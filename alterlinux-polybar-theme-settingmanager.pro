@@ -32,3 +32,9 @@ TRANSLATIONS += \
 qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
+
+DISTFILES += \
+    pic/polybar-none.png \
+    pic/polybar-round.png \
+    pic/polybar-sharp.png \
+    pic/polybar-sharprev.png
