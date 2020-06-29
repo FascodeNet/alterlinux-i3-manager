@@ -7,6 +7,12 @@ MainWindow::MainWindow(QWidget *parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+    //デフォルト設定
+    //画像読み込み
+    ui->none    ->setPixmap(QPixmap("./pic/polybar-none.png"    ));
+    ui->round   ->setPixmap(QPixmap("./pic/polybar-round.png"   ));
+    ui->sharp   ->setPixmap(QPixmap("./pic/polybar-sharp.png"   ));
+    ui->sharprev->setPixmap(QPixmap("./pic/polybar-sharprev.png"));
 }
 
 MainWindow::~MainWindow()
