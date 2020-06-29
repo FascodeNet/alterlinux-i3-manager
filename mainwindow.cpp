@@ -62,7 +62,7 @@ void MainWindow::updateThemes()
     else radius="radius-bottom = 0";
 
     //config.iniに以上の設定を書き込む
-    QFile file("/home/watasuke/.config/polybar/config.ini");
+    QFile file("~/.config/polybar/config.ini");
     if(!file.open(QIODevice::ReadOnly))
     {
         QMessageBox::warning( this, tr("error"),tr("File cannnot open:")+file.errorString() );
@@ -93,8 +93,6 @@ void MainWindow::updateThemes()
     }
     QTextStream outstream(&file);
     outstream<<out;
-
-    QMessageBox::information(this, "test", out);
     QMessageBox::information(this, tr("finish"), tr("Completed!\nThe changes will be applied when i3wm is reloaded."));
 }
 
