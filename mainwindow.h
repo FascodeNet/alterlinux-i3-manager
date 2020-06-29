@@ -18,7 +18,11 @@ public:
 private slots:
     void on_exit_button_clicked();
 
+    void on_apply_button_clicked();
+
 private:
     Ui::MainWindow *ui;
+    void updateThemes();
+    void updateModules();
 };
 #endif // MAINWINDOW_H
