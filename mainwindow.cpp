@@ -5,7 +5,6 @@
 #include <QTextStream>
 #include <QFile>
 #include <QDir>
-#include <QDebug>
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -56,7 +55,6 @@ MainWindow::MainWindow(QWidget *parent)
     //---------------------------
     //モジュールのデフォルト設定
     int num = stream.readLine().toInt();
-    qDebug() << num;
     if(num>=64){ ui->mod_power   ->setChecked(true); num-=64; }
     if(num>=32){ ui->mod_battery ->setChecked(true); num-=32; }
     if(num>=16){ ui->mod_memory  ->setChecked(true); num-=16; }
@@ -67,10 +65,10 @@ MainWindow::MainWindow(QWidget *parent)
     file.close();
     //---------------------------
     //画像読み込み
-    ui->none    ->setPixmap(QPixmap("./pic/polybar-none.png"    ));
-    ui->round   ->setPixmap(QPixmap("./pic/polybar-round.png"   ));
-    ui->sharp   ->setPixmap(QPixmap("./pic/polybar-sharp.png"   ));
-    ui->sharprev->setPixmap(QPixmap("./pic/polybar-sharprev.png"));
+    ui->none    ->setPixmap(QPixmap(QApplication::applicationDirPath()+"/pic/polybar-none.png"    ));
+    ui->round   ->setPixmap(QPixmap(QApplication::applicationDirPath()+"/pic/polybar-round.png"   ));
+    ui->sharp   ->setPixmap(QPixmap(QApplication::applicationDirPath()+"/pic/polybar-sharp.png"   ));
+    ui->sharprev->setPixmap(QPixmap(QApplication::applicationDirPath()+"/pic/polybar-sharprev.png"));
 }
 
 MainWindow::~MainWindow()
@@ -190,7 +188,7 @@ void MainWindow::updateThemes()
     QFile file(QDir::homePath()+"/.config/polybar/config.ini");
     if(!file.open(QIODevice::ReadOnly))
     {
-        QMessageBox::warning( this, tr("error"),tr("File cannnot open:")+file.errorString() );
+        QMessageBox::warning( this, tr("error"),tr("File cannnot open: ")+file.errorString() );
         return;
     }
     QTextStream stream(&file);
@@ -285,7 +283,7 @@ void MainWindow::updateModules()
     file.close();
     if(!file.open(QIODevice::WriteOnly))
     {
-        QMessageBox::warning( this, tr("error"),tr("File cannnot open:")+file.errorString() );
+        QMessageBox::warning( this, tr("error"),tr("File cannnot open: ")+file.errorString() );
         return;
     }
     QTextStream outstream(&file);
