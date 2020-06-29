@@ -22,6 +22,7 @@ private slots:
 
 private:
     Ui::MainWindow *ui;
+    void updateSetting();
     void updateThemes();
     void updateModules();
 };

@@ -5,25 +5,67 @@
 #include <QTextStream>
 #include <QFile>
 #include <QDir>
+#include <QDebug>
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+    QFile file(QDir::homePath()+"/.config/polybar/setting");
+    if(!file.open(QIODevice::ReadOnly))
+    {
+        //テーマのデフォルト設定
+        ui->select_none->setChecked(true);
+        ui->theme_dark ->setChecked(true);
+        ui->simple     ->setChecked(true);
+        ui->bar_top    ->setChecked(true);
+        //モジュールのデフォルト設定
+        ui->mod_i3status->setChecked(true);
+        ui->mod_clock   ->setChecked(true);
+        ui->mod_network ->setChecked(true);
+        ui->mod_cpu     ->setChecked(true);
+        ui->mod_memory  ->setChecked(true);
+        ui->mod_battery ->setChecked(true);
+        ui->mod_power   ->setChecked(true);
+        return;
+    }
+    QTextStream stream(&file);
+    //---------------------------
     //テーマのデフォルト設定
-    ui->select_none->setChecked(true);
-    ui->theme_dark ->setChecked(true);
-    ui->simple     ->setChecked(true);
-    ui->bar_top    ->setChecked(true);
+
+    //ダーク/ライトテーマ
+    if(stream.readLine()=="1") ui->theme_light->setChecked(true);
+    else ui->theme_dark->setChecked(true);
+    //透明
+    if(stream.readLine()=="1") ui->opaqueBar->setChecked(true);
+    //ブロック形状
+    QString tmp=stream.readLine();
+    if     (tmp=="1") ui->select_round   ->setChecked(true);
+    else if(tmp=="2") ui->select_sharp   ->setChecked(true);
+    else if(tmp=="3") ui->select_sharprev->setChecked(true);
+    else              ui->select_none    ->setChecked(true);
+    //バーの位置
+    if(stream.readLine()=="1") ui->bar_bottom->setChecked(true);
+    else ui->bar_top->setChecked(true);
+    //丸めるかどうか
+    if(stream.readLine()=="1") ui->roundOff->setChecked(true);
+    //アイコン色
+    if(stream.readLine()=="1") ui->colorful->setChecked(true);
+    else ui->simple->setChecked(true);
+    //---------------------------
     //モジュールのデフォルト設定
-    ui->mod_i3status->setChecked(true);
-    ui->mod_clock   ->setChecked(true);
-    ui->mod_network ->setChecked(true);
-    ui->mod_cpu     ->setChecked(true);
-    ui->mod_memory  ->setChecked(true);
-    ui->mod_battery ->setChecked(true);
-    ui->mod_power   ->setChecked(true);
+    int num = stream.readLine().toInt();
+    qDebug() << num;
+    if(num>=64){ ui->mod_power   ->setChecked(true); num-=64; }
+    if(num>=32){ ui->mod_battery ->setChecked(true); num-=32; }
+    if(num>=16){ ui->mod_memory  ->setChecked(true); num-=16; }
+    if(num>= 8){ ui->mod_cpu     ->setChecked(true); num-= 8; }
+    if(num>= 4){ ui->mod_network ->setChecked(true); num-= 4; }
+    if(num>= 2){ ui->mod_clock   ->setChecked(true); num-= 2; }
+    if(num>= 1){ ui->mod_i3status->setChecked(true); num-= 1; }
+    file.close();
+    //---------------------------
     //画像読み込み
     ui->none    ->setPixmap(QPixmap("./pic/polybar-none.png"    ));
     ui->round   ->setPixmap(QPixmap("./pic/polybar-round.png"   ));
@@ -34,6 +76,82 @@ MainWindow::MainWindow(QWidget *parent)
 MainWindow::~MainWindow()
 {
     delete ui;
+}
+
+void MainWindow::updateSetting()
+{
+    if(ui->tabWidget->currentIndex() == 0)
+    //テーマの設定
+    {
+        QString out;
+        //テーマ
+        if(ui->theme_dark ->isChecked()) out+="0\n";
+        if(ui->theme_light->isChecked()) out+="1\n";
+        //透明
+        if(ui->opaqueBar->isChecked()) out+="1\n";
+        else out+="0\n";
+        //ブロックの形
+        if(ui->select_none    ->isChecked()) out+="0\n";
+        if(ui->select_round   ->isChecked()) out+="1\n";
+        if(ui->select_sharp   ->isChecked()) out+="2\n";
+        if(ui->select_sharprev->isChecked()) out+="3\n";
+        //バーをしたにするかどうか
+        if(ui->bar_bottom->isChecked()) out+="1\n";
+        else out+="0\n";
+        //角丸めるかどうか
+        if(ui->roundOff->isChecked()) out+="1\n";
+        else out+="0\n";
+        //アイコン色
+        if(ui->simple  ->isChecked()) out+="0\n";
+        if(ui->colorful->isChecked()) out+="1\n";
+        //---------------------
+        //書き込み
+        QFile file(QDir::homePath()+"/.config/polybar/setting");
+        if(!file.open(QIODevice::ReadWrite)) return;
+        QTextStream stream(&file);
+        for(int i=1; i<=6; i++) stream.readLine(); //追加した行（1〜6行）は飛ばす
+        while(!stream.atEnd()) out+=stream.readLine()+'\n';
+        file.close();
+        if(!file.open(QIODevice::WriteOnly)) return;
+        QTextStream outstream(&file);
+        outstream<<out;
+        file.close();
+    }
+    else
+    //モジュールの設定
+    {
+        int num=0;
+        if(ui->mod_power   ->isChecked()) num+=64;
+        if(ui->mod_battery ->isChecked()) num+=32;
+        if(ui->mod_memory  ->isChecked()) num+=16;
+        if(ui->mod_cpu     ->isChecked()) num+= 8;
+        if(ui->mod_network ->isChecked()) num+= 4;
+        if(ui->mod_clock   ->isChecked()) num+= 2;
+        if(ui->mod_i3status->isChecked()) num+= 1;
+        //---------------------
+        //書き込み
+        QFile file(QDir::homePath()+"/.config/polybar/setting");
+        if(!file.open(QIODevice::ReadWrite)) return;
+        QTextStream stream(&file);
+        QString out;
+        int i=1;
+        while(!stream.atEnd())
+        {
+            if(i==7)
+            {
+                out+=QString::number(num);
+                stream.readLine();
+            }
+            else out+=stream.readLine();
+            out+='\n';
+            i++;
+        }
+        file.close();
+        if(!file.open(QIODevice::WriteOnly)) return;
+        QTextStream outstream(&file);
+        outstream<<out;
+        file.close();
+    }
 }
 
 void MainWindow::updateThemes()
@@ -101,6 +219,7 @@ void MainWindow::updateThemes()
     QTextStream outstream(&file);
     outstream<<out;
     QMessageBox::information(this, tr("finish"), tr("Completed!\nThe changes will be applied when i3wm is reloaded."));
+    file.close();
 }
 
 void MainWindow::updateModules()
@@ -172,6 +291,7 @@ void MainWindow::updateModules()
     QTextStream outstream(&file);
     outstream<<out;
     QMessageBox::information(this, tr("finish"), tr("Completed!\nThe changes will be applied when i3wm is reloaded."));
+    file.close();
 }
 
 void MainWindow::on_apply_button_clicked()
@@ -179,6 +299,7 @@ void MainWindow::on_apply_button_clicked()
     if(ui->tabWidget->currentIndex() == 0)
         updateThemes();
     else updateModules();
+    updateSetting();
 }
 
 
