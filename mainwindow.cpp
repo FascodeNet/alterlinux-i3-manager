@@ -2,9 +2,9 @@
 #include "ui_mainwindow.h"
 
 #include <QMessageBox>
-#include <QFile>
 #include <QTextStream>
-#include <QDebug>
+#include <QFile>
+#include <QDir>
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -58,11 +58,11 @@ void MainWindow::updateThemes()
     else bar="bottom         = false";
     //角丸めるかどうか (line 34)
     QString radius;
-    if(ui->roundOff->isChecked()) radius="radius-bottom = 15.0";
-    else radius="radius-bottom = 0";
+    if(ui->roundOff->isChecked()) radius="radius-bottom  = 15.0";
+    else radius="radius-bottom  = 0";
 
     //config.iniに以上の設定を書き込む
-    QFile file("~/.config/polybar/config.ini");
+    QFile file(QDir::homePath()+"/.config/polybar/config.ini");
     if(!file.open(QIODevice::ReadOnly))
     {
         QMessageBox::warning( this, tr("error"),tr("File cannnot open:")+file.errorString() );
@@ -88,7 +88,7 @@ void MainWindow::updateThemes()
     file.close();
     if(!file.open(QIODevice::WriteOnly))
     {
-        QMessageBox::warning( this, tr("error"),tr("File cannnot open:")+file.errorString() );
+        QMessageBox::warning( this, tr("error"),tr("File cannnot open: ")+file.errorString() );
         return;
     }
     QTextStream outstream(&file);
