@@ -17,6 +17,13 @@ MainWindow::MainWindow(QWidget *parent)
     ui->simple     ->setChecked(true);
     ui->bar_top    ->setChecked(true);
     //モジュールのデフォルト設定
+    ui->mod_i3status->setChecked(true);
+    ui->mod_clock   ->setChecked(true);
+    ui->mod_network ->setChecked(true);
+    ui->mod_cpu     ->setChecked(true);
+    ui->mod_memory  ->setChecked(true);
+    ui->mod_battery ->setChecked(true);
+    ui->mod_power   ->setChecked(true);
     //画像読み込み
     ui->none    ->setPixmap(QPixmap("./pic/polybar-none.png"    ));
     ui->round   ->setPixmap(QPixmap("./pic/polybar-round.png"   ));
@@ -98,6 +105,73 @@ void MainWindow::updateThemes()
 
 void MainWindow::updateModules()
 {
+    //left (line 39)
+    QString left   = "modules-left   = ";  //i3 left-end
+    if(ui->mod_i3status->isChecked()) left+="i3 left-end";
+    //center (line 40)
+    QString center = "modules-center = ";  //left-begin clock right-end
+    if(ui->mod_clock->isChecked()) center+="left-begin clock right-end";
+    //right (line 41)
+    QString right  = "modules-right  = ";  //right-begin network cpu memory battery right-end right-begin power
+    bool alreadyAdd=false;
+    if(ui->mod_network->isChecked())
+    {
+        if(!alreadyAdd) right+="right-begin";
+        right+=" network";
+        alreadyAdd=true;
+    }
+    if(ui->mod_cpu->isChecked())
+    {
+        if(!alreadyAdd) right+="right-begin";
+        right+=" cpu";
+        alreadyAdd=true;
+    }
+    if(ui->mod_memory->isChecked())
+    {
+        if(!alreadyAdd) right+="right-begin";
+        right+=" memory";
+        alreadyAdd=true;
+    }
+    if(ui->mod_battery->isChecked())
+    {
+        if(!alreadyAdd) right+="right-begin";
+        right+=" battery";
+        alreadyAdd=true;
+    }
+    if(alreadyAdd) right+=" right-end ";
+    if(ui->mod_power->isChecked()) right+="right-begin power";
+
+    //config.iniに以上の設定を書き込む
+    QFile file(QDir::homePath()+"/.config/polybar/config.ini");
+    if(!file.open(QIODevice::ReadOnly))
+    {
+        QMessageBox::warning( this, tr("error"),tr("File cannnot open: ")+file.errorString() );
+        return;
+    }
+    QTextStream stream(&file);
+    QString out;
+    int i=1;
+    while(!stream.atEnd())
+    {
+        switch(i)
+        {
+            case 39: out+=left  ; stream.readLine(); break;
+            case 40: out+=center; stream.readLine(); break;
+            case 41: out+=right ; stream.readLine(); break;
+            default: out+=        stream.readLine(); break;
+        }
+        out+='\n';
+        i++;
+    }
+    file.close();
+    if(!file.open(QIODevice::WriteOnly))
+    {
+        QMessageBox::warning( this, tr("error"),tr("File cannnot open:")+file.errorString() );
+        return;
+    }
+    QTextStream outstream(&file);
+    outstream<<out;
+    QMessageBox::information(this, tr("finish"), tr("Completed!\nThe changes will be applied when i3wm is reloaded."));
 }
 
 void MainWindow::on_apply_button_clicked()
