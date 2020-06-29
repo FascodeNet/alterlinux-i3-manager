@@ -66,7 +66,7 @@
      </rect>
     </property>
     <property name="currentIndex">
-     <number>1</number>
+     <number>0</number>
     </property>
     <widget class="QWidget" name="theme_select">
      <attribute name="title">
@@ -257,7 +257,7 @@
       </property>
       <layout class="QGridLayout" name="gridLayout_2">
        <item row="0" column="1">
-        <widget class="QCheckBox" name="checkBox_2">
+        <widget class="QCheckBox" name="mod_clock">
          <property name="font">
           <font>
            <pointsize>12</pointsize>
@@ -269,7 +269,7 @@
         </widget>
        </item>
        <item row="0" column="0">
-        <widget class="QCheckBox" name="checkBox">
+        <widget class="QCheckBox" name="mod_i3status">
          <property name="font">
           <font>
            <pointsize>12</pointsize>
@@ -281,7 +281,7 @@
         </widget>
        </item>
        <item row="2" column="0">
-        <widget class="QCheckBox" name="checkBox_4">
+        <widget class="QCheckBox" name="mod_memory">
          <property name="font">
           <font>
            <pointsize>12</pointsize>
@@ -293,7 +293,7 @@
         </widget>
        </item>
        <item row="2" column="1">
-        <widget class="QCheckBox" name="checkBox_3">
+        <widget class="QCheckBox" name="mod_battery">
          <property name="font">
           <font>
            <pointsize>12</pointsize>
@@ -305,7 +305,7 @@
         </widget>
        </item>
        <item row="1" column="0">
-        <widget class="QCheckBox" name="checkBox_5">
+        <widget class="QCheckBox" name="mod_network">
          <property name="font">
           <font>
            <pointsize>12</pointsize>
@@ -317,7 +317,7 @@
         </widget>
        </item>
        <item row="1" column="1">
-        <widget class="QCheckBox" name="checkBox_6">
+        <widget class="QCheckBox" name="mod_cpu">
          <property name="font">
           <font>
            <pointsize>12</pointsize>
@@ -329,7 +329,7 @@
         </widget>
        </item>
        <item row="3" column="0">
-        <widget class="QCheckBox" name="checkBox_7">
+        <widget class="QCheckBox" name="mod_power">
          <property name="font">
           <font>
            <pointsize>12</pointsize>
