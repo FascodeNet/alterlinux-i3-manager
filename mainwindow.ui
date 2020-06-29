@@ -136,14 +136,14 @@
          </attribute>
         </widget>
        </item>
-       <item row="1" column="3">
+       <item row="3" column="3">
         <widget class="QRadioButton" name="colorful">
          <property name="text">
           <string>Colorful</string>
          </property>
         </widget>
        </item>
-       <item row="3" column="3">
+       <item row="1" column="3">
         <widget class="QRadioButton" name="simple">
          <property name="text">
           <string>Simple</string>
@@ -375,7 +375,7 @@
  <resources/>
  <connections/>
  <buttongroups>
-  <buttongroup name="bar"/>
   <buttongroup name="theme"/>
+  <buttongroup name="bar"/>
  </buttongroups>
 </ui>
