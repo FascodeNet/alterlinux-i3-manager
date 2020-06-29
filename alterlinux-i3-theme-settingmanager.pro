@@ -26,7 +26,7 @@ FORMS += \
     mainwindow.ui
 
 TRANSLATIONS += \
-    alterlinux-polybar-theme-settingmanager_ja_JP.ts
+    alterlinux-i3-theme-settingmanager_ja_JP.ts
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
