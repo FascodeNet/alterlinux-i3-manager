@@ -66,7 +66,7 @@
      </rect>
     </property>
     <property name="currentIndex">
-     <number>0</number>
+     <number>1</number>
     </property>
     <widget class="QWidget" name="theme_select">
      <attribute name="title">
@@ -152,63 +152,70 @@
        </item>
       </layout>
      </widget>
-     <widget class="QWidget" name="gridLayoutWidget_2">
-      <property name="geometry">
-       <rect>
-        <x>110</x>
-        <y>10</y>
-        <width>311</width>
-        <height>141</height>
-       </rect>
-      </property>
-      <layout class="QGridLayout" name="preview">
-       <item row="0" column="0">
-        <widget class="QGraphicsView" name="graphicsView"/>
-       </item>
-       <item row="2" column="0">
-        <widget class="QGraphicsView" name="graphicsView_3"/>
-       </item>
-       <item row="3" column="0">
-        <widget class="QGraphicsView" name="graphicsView_2"/>
-       </item>
-       <item row="1" column="0">
-        <widget class="QGraphicsView" name="graphicsView_4"/>
-       </item>
-      </layout>
-     </widget>
-     <widget class="QWidget" name="verticalLayoutWidget">
+     <widget class="QWidget" name="verticalLayoutWidget_2">
       <property name="geometry">
        <rect>
         <x>80</x>
         <y>10</y>
-        <width>31</width>
-        <height>141</height>
+        <width>321</width>
+        <height>131</height>
        </rect>
       </property>
-      <layout class="QVBoxLayout" name="verticalLayout">
-       <item>
-        <widget class="QRadioButton" name="radioButton_2">
+      <layout class="QGridLayout" name="gridLayout">
+       <property name="sizeConstraint">
+        <enum>QLayout::SetMinAndMaxSize</enum>
+       </property>
+       <item row="0" column="1">
+        <widget class="QLabel" name="none">
+         <property name="text">
+          <string>none</string>
+         </property>
+        </widget>
+       </item>
+       <item row="3" column="1">
+        <widget class="QLabel" name="sharprev">
+         <property name="text">
+          <string>sharprev</string>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="1">
+        <widget class="QLabel" name="round">
+         <property name="text">
+          <string>round</string>
+         </property>
+        </widget>
+       </item>
+       <item row="2" column="1">
+        <widget class="QLabel" name="sharp">
+         <property name="text">
+          <string>sharp</string>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="0">
+        <widget class="QRadioButton" name="select_none">
          <property name="text">
           <string/>
          </property>
         </widget>
        </item>
-       <item>
-        <widget class="QRadioButton" name="radioButton_4">
+       <item row="1" column="0">
+        <widget class="QRadioButton" name="select_round">
          <property name="text">
           <string/>
          </property>
         </widget>
        </item>
-       <item>
-        <widget class="QRadioButton" name="radioButton_3">
+       <item row="2" column="0">
+        <widget class="QRadioButton" name="select_sharp">
          <property name="text">
           <string/>
          </property>
         </widget>
        </item>
-       <item>
-        <widget class="QRadioButton" name="radioButton">
+       <item row="3" column="0">
+        <widget class="QRadioButton" name="select_sharprev">
          <property name="text">
           <string/>
          </property>
@@ -239,6 +246,102 @@
        <string>Check the modules you want to hide.</string>
       </property>
      </widget>
+     <widget class="QWidget" name="gridLayoutWidget_2">
+      <property name="geometry">
+       <rect>
+        <x>30</x>
+        <y>60</y>
+        <width>401</width>
+        <height>171</height>
+       </rect>
+      </property>
+      <layout class="QGridLayout" name="gridLayout_2">
+       <item row="0" column="1">
+        <widget class="QCheckBox" name="checkBox_2">
+         <property name="font">
+          <font>
+           <pointsize>12</pointsize>
+          </font>
+         </property>
+         <property name="text">
+          <string>Clock</string>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="0">
+        <widget class="QCheckBox" name="checkBox">
+         <property name="font">
+          <font>
+           <pointsize>12</pointsize>
+          </font>
+         </property>
+         <property name="text">
+          <string>i3 status</string>
+         </property>
+        </widget>
+       </item>
+       <item row="2" column="0">
+        <widget class="QCheckBox" name="checkBox_4">
+         <property name="font">
+          <font>
+           <pointsize>12</pointsize>
+          </font>
+         </property>
+         <property name="text">
+          <string>Memory used</string>
+         </property>
+        </widget>
+       </item>
+       <item row="2" column="1">
+        <widget class="QCheckBox" name="checkBox_3">
+         <property name="font">
+          <font>
+           <pointsize>12</pointsize>
+          </font>
+         </property>
+         <property name="text">
+          <string>Battery</string>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="0">
+        <widget class="QCheckBox" name="checkBox_5">
+         <property name="font">
+          <font>
+           <pointsize>12</pointsize>
+          </font>
+         </property>
+         <property name="text">
+          <string>network status</string>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="1">
+        <widget class="QCheckBox" name="checkBox_6">
+         <property name="font">
+          <font>
+           <pointsize>12</pointsize>
+          </font>
+         </property>
+         <property name="text">
+          <string>CPU used</string>
+         </property>
+        </widget>
+       </item>
+       <item row="3" column="0">
+        <widget class="QCheckBox" name="checkBox_7">
+         <property name="font">
+          <font>
+           <pointsize>12</pointsize>
+          </font>
+         </property>
+         <property name="text">
+          <string>Power button</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
     </widget>
    </widget>
    <widget class="QWidget" name="horizontalLayoutWidget">
@@ -266,19 +369,6 @@
       </widget>
      </item>
     </layout>
-   </widget>
-   <widget class="QLabel" name="IMAGE">
-    <property name="geometry">
-     <rect>
-      <x>280</x>
-      <y>10</y>
-      <width>58</width>
-      <height>18</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>TextLabel</string>
-    </property>
    </widget>
   </widget>
  </widget>
