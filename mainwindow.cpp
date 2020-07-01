@@ -175,14 +175,24 @@ void MainWindow::updateThemes()
     if(ui->select_sharp   ->isChecked()) block+="sharp";
     if(ui->select_sharprev->isChecked()) block+="sharprev";
     block += ".ini";
-    //バーをしたにするかどうか (line 32
-    QString bar;
-    if(ui->bar_bottom->isChecked())bar="bottom         = true";
-    else bar="bottom         = false";
-    //角丸めるかどうか (line 34)
-    QString radius;
-    if(ui->roundOff->isChecked()) radius="radius-bottom  = 15.0";
-    else radius="radius-bottom  = 0";
+    //
+    QString place[2] = { "top" , "bottom" }
+    //バーをしたにするかどうか (line 32) , 角丸めるかどうか (line 34)
+    QString bar, radius;
+    if(ui->bar_bottom->isChecked())
+    {
+        bar="bottom         = true";
+        if(ui->roundOff->isChecked())
+            radius="radius-top  = 15.0";
+    }
+    else
+    {
+        bar="bottom         = false";
+        if(ui->roundOff->isChecked())
+            radius="radius-bottom  = 15.0";
+    }
+    if(!ui->roundOff->isChecked())
+        radius="radius         = 0";
 
     //config.iniに以上の設定を書き込む
     QFile file(QDir::homePath()+"/.config/polybar/config.ini");
