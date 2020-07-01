@@ -175,8 +175,6 @@ void MainWindow::updateThemes()
     if(ui->select_sharp   ->isChecked()) block+="sharp";
     if(ui->select_sharprev->isChecked()) block+="sharprev";
     block += ".ini";
-    //
-    QString place[2] = { "top" , "bottom" }
     //バーをしたにするかどうか (line 32) , 角丸めるかどうか (line 34)
     QString bar, radius;
     if(ui->bar_bottom->isChecked())
