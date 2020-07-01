@@ -216,8 +216,8 @@ void MainWindow::updateThemes()
     }
     QTextStream outstream(&file);
     outstream<<out;
-    QMessageBox::information(this, tr("finish"), tr("Completed!\nThe changes will be applied when i3wm is reloaded."));
     file.close();
+    QMessageBox::information(this, tr("finish"), tr("Completed!\nThe changes will be applied when i3wm is reloaded."));
 }
 
 void MainWindow::updateModules()
@@ -288,8 +288,8 @@ void MainWindow::updateModules()
     }
     QTextStream outstream(&file);
     outstream<<out;
-    QMessageBox::information(this, tr("finish"), tr("Completed!\nThe changes will be applied when i3wm is reloaded."));
     file.close();
+    QMessageBox::information(this, tr("finish"), tr("Completed!\nThe changes will be applied when i3wm is reloaded."));
 }
 
 void MainWindow::on_apply_button_clicked()
