@@ -11,6 +11,22 @@ MainWindow::MainWindow(QWidget *parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+    loadSettings();
+    //---------------------------
+    //画像読み込み
+    ui->none    ->setPixmap(QPixmap("/usr/share/alterlinux-i3-theme-settingmanager/pic/polybar-none.png"    ));
+    ui->round   ->setPixmap(QPixmap("/usr/share/alterlinux-i3-theme-settingmanager/pic/polybar-round.png"   ));
+    ui->sharp   ->setPixmap(QPixmap("/usr/share/alterlinux-i3-theme-settingmanager/pic/polybar-sharp.png"   ));
+    ui->sharprev->setPixmap(QPixmap("/usr/share/alterlinux-i3-theme-settingmanager/pic/polybar-sharprev.png"));
+}
+
+MainWindow::~MainWindow()
+{
+    delete ui;
+}
+
+void MainWindow::loadSettings()
+{
     QFile file(QDir::homePath()+"/.config/polybar/setting");
     if(!file.open(QIODevice::ReadOnly))
     {
@@ -63,20 +79,9 @@ MainWindow::MainWindow(QWidget *parent)
     if(num>= 2){ ui->mod_clock   ->setChecked(true); num-= 2; }
     if(num>= 1){ ui->mod_i3status->setChecked(true); num-= 1; }
     file.close();
-    //---------------------------
-    //画像読み込み
-    ui->none    ->setPixmap(QPixmap(QApplication::applicationDirPath()+"/pic/polybar-none.png"    ));
-    ui->round   ->setPixmap(QPixmap(QApplication::applicationDirPath()+"/pic/polybar-round.png"   ));
-    ui->sharp   ->setPixmap(QPixmap(QApplication::applicationDirPath()+"/pic/polybar-sharp.png"   ));
-    ui->sharprev->setPixmap(QPixmap(QApplication::applicationDirPath()+"/pic/polybar-sharprev.png"));
 }
 
-MainWindow::~MainWindow()
-{
-    delete ui;
-}
-
-void MainWindow::updateSetting()
+void MainWindow::updateSettings()
 {
     if(ui->tabWidget->currentIndex() == 0)
     //テーマの設定
