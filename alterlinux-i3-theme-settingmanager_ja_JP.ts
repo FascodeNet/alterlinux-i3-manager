@@ -137,7 +137,7 @@
     <message>
         <location filename="mainwindow.ui" line="383"/>
         <source>Default Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>初期設定に戻す</translation>
     </message>
     <message>
         <location filename="mainwindow.cpp" line="204"/>
@@ -185,7 +185,7 @@ Are you sure to exit?</source>
     <message>
         <location filename="mainwindow.cpp" line="331"/>
         <source>Are you sure to set default settings?</source>
-        <translation type="unfinished"></translation>
+        <translation>現在の設定を破棄し、初期設定に変更しますか？</translation>
     </message>
 </context>
 </TS>
