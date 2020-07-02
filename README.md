@@ -1,5 +1,5 @@
-# alterlinux-i3-theme-settingmanager
-Theme setting manager for Alter Linux i3 edition
+# alterlinux-i3-manager
+A i3 setting manager for Alter Linux
 
 ---
 
