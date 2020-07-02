@@ -14,7 +14,6 @@
 *.so.*
 *_pch.h.cpp
 *_resource.rc
-*.qm
 .#*
 *.*#
 core
@@ -23,7 +22,6 @@ tags
 .DS_Store
 .directory
 *.debug
-Makefile*
 *.prl
 *.app
 moc_*.cpp
@@ -71,3 +69,5 @@ Thumbs.db
 *.dll
 *.exe
 
+moc_predefs.h
+alterlinux-i3-theme-settingmanager
