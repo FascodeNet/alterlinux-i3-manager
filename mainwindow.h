@@ -20,10 +20,14 @@ private slots:
 
     void on_apply_button_clicked();
 
+    void on_pushButton_clicked();
+
 private:
     Ui::MainWindow *ui;
-    void updateSetting();
+    void loadSettings();
+    void updateSettings();
     void updateThemes();
     void updateModules();
+    void setDefaultSettings();
 };
 #endif // MAINWINDOW_H

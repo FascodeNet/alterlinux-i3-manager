@@ -85,8 +85,8 @@
     </message>
     <message>
         <location filename="mainwindow.ui" line="246"/>
-        <source>Check the modules you want to hide</source>
-        <oldsource>Check the modules you want to hide.</oldsource>
+        <source>Check the modules you want to display</source>
+        <oldsource>Check the modules you want to hide</oldsource>
         <translation>非表示にしたいモジュールのチェックを外してください</translation>
     </message>
     <message>
@@ -135,10 +135,15 @@
         <translation>適用</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="193"/>
-        <location filename="mainwindow.cpp" line="216"/>
-        <location filename="mainwindow.cpp" line="267"/>
-        <location filename="mainwindow.cpp" line="288"/>
+        <location filename="mainwindow.ui" line="383"/>
+        <source>Default Settings</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mainwindow.cpp" line="204"/>
+        <location filename="mainwindow.cpp" line="227"/>
+        <location filename="mainwindow.cpp" line="278"/>
+        <location filename="mainwindow.cpp" line="299"/>
         <source>error</source>
         <translation>エラー</translation>
     </message>
@@ -147,38 +152,40 @@
         <translation type="obsolete">ファイルを開けません: </translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="193"/>
-        <location filename="mainwindow.cpp" line="216"/>
-        <location filename="mainwindow.cpp" line="267"/>
-        <location filename="mainwindow.cpp" line="288"/>
+        <location filename="mainwindow.cpp" line="204"/>
+        <location filename="mainwindow.cpp" line="227"/>
+        <location filename="mainwindow.cpp" line="278"/>
+        <location filename="mainwindow.cpp" line="299"/>
         <source>File cannnot open: </source>
         <translation>ファイルを開けません: </translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="221"/>
-        <location filename="mainwindow.cpp" line="293"/>
         <source>finish</source>
-        <translation>完了</translation>
+        <translation type="vanished">完了</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="221"/>
-        <location filename="mainwindow.cpp" line="293"/>
         <source>Completed!
 The changes will be applied when i3wm is reloaded.</source>
-        <translation>設定を変更しました。
+        <translation type="vanished">設定を変更しました。
 変更はi3wmの再起動時に適用されます。</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="309"/>
+        <location filename="mainwindow.cpp" line="325"/>
+        <location filename="mainwindow.cpp" line="331"/>
         <source>Warning</source>
         <translation>警告</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="309"/>
+        <location filename="mainwindow.cpp" line="325"/>
         <source>Changes will be discarded.
 Are you sure to exit?</source>
         <translation>変更は破棄されます。
 終了しますか？</translation>
+    </message>
+    <message>
+        <location filename="mainwindow.cpp" line="331"/>
+        <source>Are you sure to set default settings?</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 </TS>

@@ -305,18 +305,29 @@ void MainWindow::updateModules()
     system("i3-msg restart");
 }
 
+void MainWindow::setDefaultSettings()
+{
+    system("rm -rf ~/.config/polybar");
+    system("cp -r /usr/share/alterlinux-i3-theme-settingmanager/polybar ~/.config");
+    system("i3-msg restart");
+}
+
 void MainWindow::on_apply_button_clicked()
 {
     if(ui->tabWidget->currentIndex() == 0)
         updateThemes();
     else updateModules();
-    updateSetting();
+    updateSettings();
 }
-
-
 
 void MainWindow::on_exit_button_clicked()
 {
     int ans = QMessageBox::question(this, tr("Warning"), tr("Changes will be discarded.\nAre you sure to exit?"));
     if(ans == QMessageBox::Yes) exit(0);
+}
+
+void MainWindow::on_pushButton_clicked()
+{
+    int ans = QMessageBox::question(this, tr("Warning"), tr("Are you sure to set default settings?"));
+    if(ans == QMessageBox::Yes) setDefaultSettings();
 }
