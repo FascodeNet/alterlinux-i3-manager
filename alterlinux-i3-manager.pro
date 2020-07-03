@@ -33,4 +33,24 @@ qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
 
-DISTFILES +=
+DISTFILES += \
+    pic/polybar-none.png \
+    pic/polybar-round.png \
+    pic/polybar-sharp.png \
+    pic/polybar-sharprev.png \
+    polybar/blocks/blocks_none.ini \
+    polybar/blocks/blocks_round.ini \
+    polybar/blocks/blocks_sharp.ini \
+    polybar/blocks/blocks_sharprev.ini \
+    polybar/colors/colors_clear_dark.ini \
+    polybar/colors/colors_clear_light.ini \
+    polybar/colors/colors_unclear_dark.ini \
+    polybar/colors/colors_unclear_light.ini \
+    polybar/colors/icons/icons_colorful_dark.ini \
+    polybar/colors/icons/icons_colorful_light.ini \
+    polybar/colors/icons/icons_simple_dark.ini \
+    polybar/colors/icons/icons_simple_light.ini \
+    polybar/config.ini \
+    polybar/launch.sh \
+    polybar/modules.ini \
+    polybar/setting

@@ -14,10 +14,10 @@ MainWindow::MainWindow(QWidget *parent)
     loadSettings();
     //---------------------------
     //画像読み込み
-    ui->none    ->setPixmap(QPixmap("/usr/share/alterlinux-i3-theme-settingmanager/pic/polybar-none.png"    ));
-    ui->round   ->setPixmap(QPixmap("/usr/share/alterlinux-i3-theme-settingmanager/pic/polybar-round.png"   ));
-    ui->sharp   ->setPixmap(QPixmap("/usr/share/alterlinux-i3-theme-settingmanager/pic/polybar-sharp.png"   ));
-    ui->sharprev->setPixmap(QPixmap("/usr/share/alterlinux-i3-theme-settingmanager/pic/polybar-sharprev.png"));
+    ui->none    ->setPixmap(QPixmap("/usr/share/alterlinux-i3-manager/pic/polybar-none.png"    ));
+    ui->round   ->setPixmap(QPixmap("/usr/share/alterlinux-i3-manager/pic/polybar-round.png"   ));
+    ui->sharp   ->setPixmap(QPixmap("/usr/share/alterlinux-i3-manager/pic/polybar-sharp.png"   ));
+    ui->sharprev->setPixmap(QPixmap("/usr/share/alterlinux-i3-manager/pic/polybar-sharprev.png"));
 }
 
 MainWindow::~MainWindow()
@@ -308,7 +308,7 @@ void MainWindow::updateModules()
 void MainWindow::setDefaultSettings()
 {
     system("rm -rf ~/.config/polybar");
-    system("cp -r /usr/share/alterlinux-i3-theme-settingmanager/polybar ~/.config");
+    system("cp -r /usr/share/alterlinux-i3-manager/polybar ~/.config");
     system("i3-msg restart");
 }
 

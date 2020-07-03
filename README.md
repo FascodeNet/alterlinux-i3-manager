@@ -13,4 +13,4 @@ This software can do:
 GPL-3.0 License
 
 ## others
-- Please don't edit "~/.config/alterlinux-i3-theme-settingmanager/setting"
+- Please don't edit "~/.config/polybar/setting"

@@ -57,7 +57,27 @@ SOURCES       = main.cpp \
 OBJECTS       = main.o \
 		mainwindow.o \
 		moc_mainwindow.o
-DIST          = /usr/lib/qt/mkspecs/features/spec_pre.prf \
+DIST          = pic/polybar-none.png \
+		pic/polybar-round.png \
+		pic/polybar-sharp.png \
+		pic/polybar-sharprev.png \
+		polybar/blocks/blocks_none.ini \
+		polybar/blocks/blocks_round.ini \
+		polybar/blocks/blocks_sharp.ini \
+		polybar/blocks/blocks_sharprev.ini \
+		polybar/colors/colors_clear_dark.ini \
+		polybar/colors/colors_clear_light.ini \
+		polybar/colors/colors_unclear_dark.ini \
+		polybar/colors/colors_unclear_light.ini \
+		polybar/colors/icons/icons_colorful_dark.ini \
+		polybar/colors/icons/icons_colorful_light.ini \
+		polybar/colors/icons/icons_simple_dark.ini \
+		polybar/colors/icons/icons_simple_light.ini \
+		polybar/config.ini \
+		polybar/launch.sh \
+		polybar/modules.ini \
+		polybar/setting \
+		/usr/lib/qt/mkspecs/features/spec_pre.prf \
 		/usr/lib/qt/mkspecs/common/unix.conf \
 		/usr/lib/qt/mkspecs/common/linux.conf \
 		/usr/lib/qt/mkspecs/common/sanitize.conf \
