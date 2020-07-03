@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.5)
 
-project(test LANGUAGES CXX)
+project(alterlinux-i3-manager LANGUAGES CXX)
 
 set(CMAKE_INCLUDE_CURRENT_DIR ON)
 
@@ -27,14 +27,14 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 find_package(Qt5 COMPONENTS Widgets REQUIRED)
 
 if(ANDROID)
-  add_library(test SHARED
+  add_library(alterlinux-i3-manager SHARED
     main.cpp
     mainwindow.cpp
     mainwindow.h
     mainwindow.ui
   )
 else()
-  add_executable(test
+  add_executable(alterlinux-i3-manager
     main.cpp
     mainwindow.cpp
     mainwindow.h
@@ -42,4 +42,4 @@ else()
   )
 endif()
 
-target_link_libraries(test PRIVATE Qt5::Widgets)
+target_link_libraries(alterlinux-i3-manager PRIVATE Qt5::Widgets)
