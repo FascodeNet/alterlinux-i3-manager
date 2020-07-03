@@ -71,3 +71,11 @@ Thumbs.db
 
 moc_predefs.h
 alterlinux-i3-manager
+*.swp
+*.ninja
+.ninja*
+CMakeCache.txt
+CMakeFiles
+cmake_install.cmake
+model_view_playground
+model_view_playground_autogen/
