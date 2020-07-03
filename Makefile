@@ -866,10 +866,13 @@ install_target: first FORCE
 	@test -d $(INSTALL_ROOT)/usr/bin || mkdir -p $(INSTALL_ROOT)/usr/bin
 	$(QINSTALL_PROGRAM) $(QMAKE_TARGET) $(INSTALL_ROOT)/usr/bin/$(QMAKE_TARGET)
 	-$(STRIP) $(INSTALL_ROOT)/usr/bin/$(QMAKE_TARGET)
+	$(COPY_DIR) pic/ /usr/share/alterlinux-i3-manager
+	$(COPY_DIR) polybar /usr/share/alterlinux-i3-manager
+	$(COPY_FILE) alterlinux-i3-manager_ja_JP.qm /usr/share/alterlinux-i3-manager
 
 uninstall_target: FORCE
 	-$(DEL_FILE) $(INSTALL_ROOT)/usr/bin/$(QMAKE_TARGET)
-	-$(DEL_DIR) $(INSTALL_ROOT)/usr/bin/ 
+	$(DEL_FILE) -rf /usr/share/alterlinux-i3-manager
 
 
 install: install_target  FORCE
