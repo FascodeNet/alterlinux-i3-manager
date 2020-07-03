@@ -26,15 +26,11 @@ FORMS += \
     mainwindow.ui
 
 TRANSLATIONS += \
-    alterlinux-i3-theme-settingmanager_ja_JP.ts
+    alterlinux-i3-manager_ja_JP.ts
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
 
-DISTFILES += \
-    pic/polybar-none.png \
-    pic/polybar-round.png \
-    pic/polybar-sharp.png \
-    pic/polybar-sharprev.png
+DISTFILES +=
