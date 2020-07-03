@@ -843,13 +843,13 @@ moc_mainwindow.o: moc_mainwindow.cpp
 ####### Install
 
 install_target: first FORCE
-	@test -d $(INSTALL_ROOT)/opt/alterlinux-i3-manager/bin || mkdir -p $(INSTALL_ROOT)/opt/alterlinux-i3-manager/bin
-	$(QINSTALL_PROGRAM) $(QMAKE_TARGET) $(INSTALL_ROOT)/opt/alterlinux-i3-manager/bin/$(QMAKE_TARGET)
-	-$(STRIP) $(INSTALL_ROOT)/opt/alterlinux-i3-manager/bin/$(QMAKE_TARGET)
+	@test -d $(INSTALL_ROOT)/usr/bin || mkdir -p $(INSTALL_ROOT)/usr/bin
+	$(QINSTALL_PROGRAM) $(QMAKE_TARGET) $(INSTALL_ROOT)/usr/bin/$(QMAKE_TARGET)
+	-$(STRIP) $(INSTALL_ROOT)/usr/bin/$(QMAKE_TARGET)
 
 uninstall_target: FORCE
-	-$(DEL_FILE) $(INSTALL_ROOT)/opt/alterlinux-i3-manager/bin/$(QMAKE_TARGET)
-	-$(DEL_DIR) $(INSTALL_ROOT)/opt/alterlinux-i3-manager/bin/ 
+	-$(DEL_FILE) $(INSTALL_ROOT)/usr/bin/$(QMAKE_TARGET)
+	-$(DEL_DIR) $(INSTALL_ROOT)/usr/bin/ 
 
 
 install: install_target  FORCE
