@@ -8,7 +8,8 @@
 #
 #  (c) 2020 Fascode Network.
 # ---------------------------------------------
-
+PREFIX ?= /usr
+share_dir ?= $(PREFIX)/share
 PROGRAM = alterlinux-i3-manager
 
 all: 
@@ -21,12 +22,12 @@ clean:
 install: 
 	cmake -GNinja .
 	ninja
-	mkdir   -p          /usr/share/$(PROGRAM)
-	cp      -rf pic/    /usr/share/$(PROGRAM)
-	cp      -rf polybar /usr/share/$(PROGRAM)
-	install -m 755 -p $(PROGRAM)          /usr/bin
-	install -m 644 -p $(PROGRAM)_ja_JP.qm /usr/share/$(PROGRAM)
+	mkdir   -p          $(DESTDIR)$(share_dir)/$(PROGRAM)
+	cp      -rf pic/    $(DESTDIR)$(share_dir)/$(PROGRAM)
+	cp      -rf polybar $(DESTDIR)$(share_dir)/$(PROGRAM)
+	install -m 755 -p $(PROGRAM)          $(DESTDIR)$(PREFIX)/bin
+	install -m 644 -p $(PROGRAM)_ja_JP.qm $(DESTDIR)$(share_dir)/$(PROGRAM)
 
 uninstall: 
-	rm -f  /usr/bin/$(PROGRAM)
-	rm -rf /usr/share/$(PROGRAM)
+	rm -f  $(DESTDIR)$(PREFIX)/bin/$(PROGRAM)
+	rm -rf $(DESTDIR)$(share_dir)/$(PROGRAM)
