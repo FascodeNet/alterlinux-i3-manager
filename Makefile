@@ -25,8 +25,8 @@ install:
 	mkdir   -p                            $(DESTDIR)$(SHARE_DIR)/$(PROGRAM)
 	cp      -rf pic/                      $(DESTDIR)$(SHARE_DIR)/$(PROGRAM)
 	cp      -rf polybar                   $(DESTDIR)$(SHARE_DIR)/$(PROGRAM)
-	install -m 755 -p $(PROGRAM)          $(DESTDIR)$(PREFIX)/bin
-	install -m 644 -p $(PROGRAM)_ja_JP.qm $(DESTDIR)$(SHARE_DIR)/$(PROGRAM)
+	install -m 755 $(PROGRAM)             $(DESTDIR)$(PREFIX)/bin/$(PROGRAM)
+	install -m 644 $(PROGRAM)_ja_JP.qm    $(DESTDIR)$(SHARE_DIR)/$(PROGRAM)/$(PROGRAM)_ja_JP.qm
 
 uninstall: 
 	rm -f  $(DESTDIR)$(PREFIX)/bin/$(PROGRAM)
