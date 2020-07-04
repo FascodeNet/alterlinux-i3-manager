@@ -22,11 +22,10 @@ clean:
 install: 
 	cmake -GNinja .
 	ninja
-	mkdir   -p                            $(DESTDIR)$(SHARE_DIR)/$(PROGRAM)
+	install -Dm 755 $(PROGRAM)            $(DESTDIR)$(PREFIX)/bin/$(PROGRAM)
+	install -Dm 644 $(PROGRAM)_ja_JP.qm   $(DESTDIR)$(SHARE_DIR)/$(PROGRAM)/$(PROGRAM)_ja_JP.qm
 	cp      -rf pic/                      $(DESTDIR)$(SHARE_DIR)/$(PROGRAM)
 	cp      -rf polybar                   $(DESTDIR)$(SHARE_DIR)/$(PROGRAM)
-	install -m 755 $(PROGRAM)             $(DESTDIR)$(PREFIX)/bin/$(PROGRAM)
-	install -m 644 $(PROGRAM)_ja_JP.qm    $(DESTDIR)$(SHARE_DIR)/$(PROGRAM)/$(PROGRAM)_ja_JP.qm
 
 uninstall: 
 	rm -f  $(DESTDIR)$(PREFIX)/bin/$(PROGRAM)
