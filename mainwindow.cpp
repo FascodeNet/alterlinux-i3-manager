@@ -14,10 +14,10 @@ MainWindow::MainWindow(QWidget *parent)
     loadSettings();
     //---------------------------
     //画像読み込み
-    ui->none    ->setPixmap(QPixmap("/usr/share/alterlinux-i3-manager/polybar-none.png"    ));
-    ui->round   ->setPixmap(QPixmap("/usr/share/alterlinux-i3-manager/polybar-round.png"   ));
-    ui->sharp   ->setPixmap(QPixmap("/usr/share/alterlinux-i3-manager/polybar-sharp.png"   ));
-    ui->sharprev->setPixmap(QPixmap("/usr/share/alterlinux-i3-manager/polybar-sharprev.png"));
+    ui->none    ->setPixmap(QPixmap("/usr/share/alterlinux-i3-manager/pic/polybar-none.png"    ));
+    ui->round   ->setPixmap(QPixmap("/usr/share/alterlinux-i3-manager/pic/polybar-round.png"   ));
+    ui->sharp   ->setPixmap(QPixmap("/usr/share/alterlinux-i3-manager/pic/polybar-sharp.png"   ));
+    ui->sharprev->setPixmap(QPixmap("/usr/share/alterlinux-i3-manager/pic/polybar-sharprev.png"));
 }
 
 MainWindow::~MainWindow()

@@ -631,7 +631,9 @@ moc_mainwindow.o: moc_mainwindow.cpp
 ####### Install
 
 install_target: first FORCE
+	cmake -GNinja .
 	ninja
+	$(MKDIR) /usr/share/alterlinus-i3-manager
 	$(INSTALL_PROGRAM) alterlinux-i3-manager /usr/bin
 	$(INSTALL_FILE) alterlinux-i3-manager_ja_JP.qm /usr/share/alterlinux-i3-manager
 	$(INSTALL_DIR) pic/ /usr/share/alterlinux-i3-manager
