@@ -1,8 +1,13 @@
 *ninja*
 *.swp
 *_autogen
+
 CMake*
 !CMakeLists.txt
 cmake_install.cmake
 *.user
+
+*.o
+moc_*
+ui_mainwindow.h
 alterlinux-i3-manager
