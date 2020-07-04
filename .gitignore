@@ -1,7 +1,8 @@
-.ninja*
+*ninja*
 *.swp
-*.ninja
-.ninja*
+*_autogen
 CMake*
 !CMakeLists.txt
 cmake_install.cmake
+*.user
+alterlinux-i3-manager

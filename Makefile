@@ -771,10 +771,6 @@ Makefile: alterlinux-i3-manager.pro /usr/lib/qt/mkspecs/linux-g++/qmake.conf /us
 /usr/lib/qt/mkspecs/features/yacc.prf:
 /usr/lib/qt/mkspecs/features/lex.prf:
 alterlinux-i3-manager.pro:
-qmake: FORCE
-	@$(QMAKE) -o Makefile alterlinux-i3-manager.pro
-
-qmake_all: FORCE
 
 
 all: Makefile alterlinux-i3-manager
@@ -798,8 +794,7 @@ clean: compiler_clean
 
 
 distclean: clean 
-	-$(DEL_FILE) $(TARGET) 
-	-$(DEL_FILE) .qmake.stash
+	-$(DEL_FILE) $(TARGET)
 	-$(DEL_FILE) Makefile
 
 
@@ -863,15 +858,14 @@ moc_mainwindow.o: moc_mainwindow.cpp
 ####### Install
 
 install_target: first FORCE
-	@test -d $(INSTALL_ROOT)/usr/bin || mkdir -p $(INSTALL_ROOT)/usr/bin
-	$(QINSTALL_PROGRAM) $(QMAKE_TARGET) $(INSTALL_ROOT)/usr/bin/$(QMAKE_TARGET)
-	-$(STRIP) $(INSTALL_ROOT)/usr/bin/$(QMAKE_TARGET)
-	$(COPY_DIR) pic/ /usr/share/alterlinux-i3-manager
-	$(COPY_DIR) polybar /usr/share/alterlinux-i3-manager
-	$(COPY_FILE) alterlinux-i3-manager_ja_JP.qm /usr/share/alterlinux-i3-manager
+	ninja
+	$(INSTALL_PROGRAM) alterlinux-i3-manager /usr/bin
+	$(INSTALL_DIR) pic/ /usr/share/alterlinux-i3-manager
+	$(INSTALL_DIR) polybar /usr/share/alterlinux-i3-manager
+	$(INSTALL_FILE) alterlinux-i3-manager_ja_JP.qm /usr/share/alterlinux-i3-manager
 
 uninstall_target: FORCE
-	-$(DEL_FILE) $(INSTALL_ROOT)/usr/bin/$(QMAKE_TARGET)
+	$(DEL_FILE) /usr/bin/alterlinux-i3-manager
 	$(DEL_FILE) -rf /usr/share/alterlinux-i3-manager
 
 
