@@ -342,6 +342,10 @@ void MainWindow::setDefaultSettings()
 {
     system("rm -rf ~/.config/polybar");
     system("cp -r /usr/share/alterlinux-i3-manager/polybar ~/.config");
+
+    system("rm -rf ~/.config/rofi");
+    system("cp -r /usr/share/alterlinux-i3-manager/rofi ~/.config");
+
     system("i3-msg restart");
 }
 
