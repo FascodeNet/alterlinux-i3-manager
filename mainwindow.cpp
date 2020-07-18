@@ -231,6 +231,39 @@ void MainWindow::updateThemes()
     outstream<<out;
     file.close();
     system("i3-msg restart");
+
+    //Rofiのテーマも変更する
+    QFile file_rofi(QDir::homePath()+"/.config/rofi/config");
+    if(!file_rofi.open(QIODevice::ReadOnly))
+    {
+        QMessageBox::warning( this, tr("error"),tr("File cannnot open: ")+file_rofi.errorString() );
+        return;
+    }
+    QTextStream stream_rofi(&file_rofi);
+    QString out_rofi;
+    i=1;
+    while(!stream_rofi.atEnd())
+    {
+        switch(i)
+        {
+            case 16:
+                out_rofi+=QString("rofi.theme      : ~/.config/rofi/alter-"+theme+".rasi");
+                stream_rofi.readLine(); break;
+            default:
+                out_rofi+=stream_rofi.readLine(); break;
+        }
+        out_rofi+='\n';
+        i++;
+    }
+    file_rofi.close();
+    if(!file_rofi.open(QIODevice::WriteOnly))
+    {
+        QMessageBox::warning( this, tr("error"),tr("File cannnot open: ")+file_rofi.errorString() );
+        return;
+    }
+    QTextStream outstream_rofi(&file_rofi);
+    outstream_rofi<<out_rofi;
+    file_rofi.close();
 }
 
 void MainWindow::updateModules()
