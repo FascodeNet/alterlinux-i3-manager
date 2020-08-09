@@ -1,3 +1,4 @@
+.vscode
 *ninja*
 *.swp
 *_autogen
@@ -9,5 +10,4 @@ cmake_install.cmake
 
 *.o
 moc_*
-ui_mainwindow.h
 alterlinux-i3-manager

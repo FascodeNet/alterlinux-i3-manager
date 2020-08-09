@@ -36,6 +36,7 @@ void MainWindow::loadSettings()
         ui->simple     ->setChecked(true);
         ui->bar_top    ->setChecked(true);
         //モジュールのデフォルト設定
+        ui->mod_launcher->setChecked(true);
         ui->mod_i3status->setChecked(true);
         ui->mod_clock   ->setChecked(true);
         ui->mod_network ->setChecked(true);
@@ -71,13 +72,14 @@ void MainWindow::loadSettings()
     //---------------------------
     //モジュールのデフォルト設定
     int num = stream.readLine().toInt();
-    if(num>=64){ ui->mod_power   ->setChecked(true); num-=64; }
-    if(num>=32){ ui->mod_battery ->setChecked(true); num-=32; }
-    if(num>=16){ ui->mod_memory  ->setChecked(true); num-=16; }
-    if(num>= 8){ ui->mod_cpu     ->setChecked(true); num-= 8; }
-    if(num>= 4){ ui->mod_network ->setChecked(true); num-= 4; }
-    if(num>= 2){ ui->mod_clock   ->setChecked(true); num-= 2; }
-    if(num>= 1){ ui->mod_i3status->setChecked(true); num-= 1; }
+    if(num>=128){ ui->mod_power   ->setChecked(true); num-=128; }
+    if(num>= 64){ ui->mod_battery ->setChecked(true); num-= 64; }
+    if(num>= 32){ ui->mod_memory  ->setChecked(true); num-= 32; }
+    if(num>= 16){ ui->mod_cpu     ->setChecked(true); num-= 16; }
+    if(num>=  8){ ui->mod_network ->setChecked(true); num-=  8; }
+    if(num>=  4){ ui->mod_clock   ->setChecked(true); num-=  4; }
+    if(num>=  2){ ui->mod_i3status->setChecked(true); num-=  2; }
+    if(num>=  1){ ui->mod_launcher->setChecked(true); num-=  1; }
     file.close();
 }
 
@@ -124,13 +126,14 @@ void MainWindow::updateSettings()
     //モジュールの設定
     {
         int num=0;
-        if(ui->mod_power   ->isChecked()) num+=64;
-        if(ui->mod_battery ->isChecked()) num+=32;
-        if(ui->mod_memory  ->isChecked()) num+=16;
-        if(ui->mod_cpu     ->isChecked()) num+= 8;
-        if(ui->mod_network ->isChecked()) num+= 4;
-        if(ui->mod_clock   ->isChecked()) num+= 2;
-        if(ui->mod_i3status->isChecked()) num+= 1;
+        if(ui->mod_power   ->isChecked()) num+=128;
+        if(ui->mod_battery ->isChecked()) num+= 64;
+        if(ui->mod_memory  ->isChecked()) num+= 32;
+        if(ui->mod_cpu     ->isChecked()) num+= 16;
+        if(ui->mod_network ->isChecked()) num+=  8;
+        if(ui->mod_clock   ->isChecked()) num+=  4;
+        if(ui->mod_i3status->isChecked()) num+=  2;
+        if(ui->mod_launcher->isChecked()) num+=  1;
         //---------------------
         //書き込み
         QFile file(QDir::homePath()+"/.config/polybar/setting");
@@ -268,15 +271,26 @@ void MainWindow::updateThemes()
 
 void MainWindow::updateModules()
 {
+    bool alreadyAdd=false;
     //left (line 39)
-    QString left   = "modules-left   = ";  //i3 left-end
-    if(ui->mod_i3status->isChecked()) left+="i3 left-end";
+    QString left   = "modules-left   = ";  //launcher i3 left-end
+    if(ui->mod_launcher->isChecked())
+    {
+        left += "launcher ";
+        alreadyAdd = true;
+    }
+    if (ui->mod_i3status->isChecked())
+    {
+        left += "i3 ";
+        alreadyAdd = true;
+    }
+    if(alreadyAdd) left+="left-end";
     //center (line 40)
-    QString center = "modules-center = ";  //left-begin clock right-end
+    QString center = "modules-center =";  //left-begin clock right-end
     if(ui->mod_clock->isChecked()) center+="left-begin clock right-end";
     //right (line 41)
-    QString right  = "modules-right  = ";  //right-begin network cpu memory battery right-end right-begin power
-    bool alreadyAdd=false;
+    alreadyAdd = false;
+    QString right = "modules-right  = "; //right-begin network cpu memory battery right-end right-begin power
     if(ui->mod_network->isChecked())
     {
         if(!alreadyAdd) right+="right-begin";
