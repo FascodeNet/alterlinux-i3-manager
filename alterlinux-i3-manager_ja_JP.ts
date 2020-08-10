@@ -90,74 +90,71 @@
         <translation>非表示にしたいモジュールのチェックを外してください</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="267"/>
+        <location filename="mainwindow.ui" line="279"/>
         <source>Clock</source>
         <translation>時計</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="279"/>
+        <location filename="mainwindow.ui" line="339"/>
         <source>i3 status</source>
         <translation>i3 ステータス</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="291"/>
+        <location filename="mainwindow.ui" line="327"/>
         <source>Memory used</source>
         <translation>メモリ使用量</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="303"/>
+        <location filename="mainwindow.ui" line="267"/>
         <source>Battery</source>
         <translation>バッテリー残量</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="315"/>
+        <location filename="mainwindow.ui" line="291"/>
         <source>network status</source>
         <translation>ネットワーク</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="327"/>
+        <location filename="mainwindow.ui" line="315"/>
         <source>CPU used</source>
         <translation>CPU使用率</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="339"/>
+        <location filename="mainwindow.ui" line="303"/>
         <source>Power button</source>
         <translation>電源</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="360"/>
+        <location filename="mainwindow.ui" line="351"/>
+        <source>Launcher</source>
+        <translation>ランチャー</translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="372"/>
         <source>Exit</source>
         <translation>終了</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="367"/>
+        <location filename="mainwindow.ui" line="379"/>
         <source>Apply</source>
         <translation>適用</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="383"/>
+        <location filename="mainwindow.ui" line="395"/>
         <source>Default Settings</source>
         <translation>初期設定に戻す</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="204"/>
-        <location filename="mainwindow.cpp" line="227"/>
-        <location filename="mainwindow.cpp" line="278"/>
-        <location filename="mainwindow.cpp" line="299"/>
         <source>error</source>
-        <translation>エラー</translation>
+        <translation type="vanished">エラー</translation>
     </message>
     <message>
         <source>File cannnot open:</source>
         <translation type="obsolete">ファイルを開けません: </translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="204"/>
-        <location filename="mainwindow.cpp" line="227"/>
-        <location filename="mainwindow.cpp" line="278"/>
-        <location filename="mainwindow.cpp" line="299"/>
         <source>File cannnot open: </source>
-        <translation>ファイルを開けません: </translation>
+        <translation type="vanished">ファイルを開けません: </translation>
     </message>
     <message>
         <source>finish</source>
@@ -170,22 +167,18 @@ The changes will be applied when i3wm is reloaded.</source>
 変更はi3wmの再起動時に適用されます。</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="325"/>
-        <location filename="mainwindow.cpp" line="331"/>
         <source>Warning</source>
-        <translation>警告</translation>
+        <translation type="vanished">警告</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="325"/>
         <source>Changes will be discarded.
 Are you sure to exit?</source>
-        <translation>変更は破棄されます。
+        <translation type="vanished">変更は破棄されます。
 終了しますか？</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="331"/>
         <source>Are you sure to set default settings?</source>
-        <translation>現在の設定を破棄し、初期設定に変更しますか？</translation>
+        <translation type="vanished">現在の設定を破棄し、初期設定に変更しますか？</translation>
     </message>
 </context>
 </TS>
