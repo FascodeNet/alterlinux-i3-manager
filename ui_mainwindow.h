@@ -1,13 +1,13 @@
 /********************************************************************************
-** Form generated from reading UI file 'mainwindowUJqIsv.ui'
+** Form generated from reading UI file 'mainwindowzEEkSb.ui'
 **
 ** Created by: Qt User Interface Compiler version 5.15.0
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
 
-#ifndef MAINWINDOWUJQISV_H
-#define MAINWINDOWUJQISV_H
+#ifndef MAINWINDOWZEEKSB_H
+#define MAINWINDOWZEEKSB_H
 
 #include <QtCore/QVariant>
 #include <QtWidgets/QApplication>
@@ -68,8 +68,8 @@ public:
     QPushButton *exit_button;
     QPushButton *apply_button;
     QPushButton *pushButton;
-    QButtonGroup *theme;
     QButtonGroup *bar;
+    QButtonGroup *theme;
 
     void setupUi(QMainWindow *MainWindow)
     {
@@ -283,7 +283,7 @@ public:
 
         retranslateUi(MainWindow);
 
-        tabWidget->setCurrentIndex(1);
+        tabWidget->setCurrentIndex(0);
 
 
         QMetaObject::connectSlotsByName(MainWindow);
@@ -333,4 +333,4 @@ namespace Ui {
 
 QT_END_NAMESPACE
 
-#endif // MAINWINDOWUJQISV_H
+#endif // MAINWINDOWZEEKSB_H
