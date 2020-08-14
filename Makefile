@@ -24,10 +24,10 @@ install:
 	ninja
 	install -Dm 755 $(PROGRAM)            $(DESTDIR)$(PREFIX)/bin/$(PROGRAM)
 	install -Dm 644 $(PROGRAM)_ja_JP.qm   $(DESTDIR)$(SHARE_DIR)/$(PROGRAM)/$(PROGRAM)_ja_JP.qm
+	install -Dm 644 $(PROGRAM).desktop    $(DESTDIR)$(SHARE_DIR)/applications/$(PROGRAM).desktop
 	cp      -rf pic                       $(DESTDIR)$(SHARE_DIR)/$(PROGRAM)
 	cp      -rf polybar                   $(DESTDIR)$(SHARE_DIR)/$(PROGRAM)
 	cp      -rf rofi                      $(DESTDIR)$(SHARE_DIR)/$(PROGRAM)
-	cp      -f  $(PROGRAM).desktop        $(DESTDIR)$(SHARE_DIR)/applications/$(PROGRAM).desktop
 
 uninstall: 
 	rm -f  $(DESTDIR)$(PREFIX)/bin/$(PROGRAM)
