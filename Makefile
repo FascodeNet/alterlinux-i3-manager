@@ -27,7 +27,9 @@ install:
 	cp      -rf pic                       $(DESTDIR)$(SHARE_DIR)/$(PROGRAM)
 	cp      -rf polybar                   $(DESTDIR)$(SHARE_DIR)/$(PROGRAM)
 	cp      -rf rofi                      $(DESTDIR)$(SHARE_DIR)/$(PROGRAM)
+	cp      -f  $(PROGRAM).desktop        $(DESTDIR)$(SHARE_DIR)/applications
 
 uninstall: 
 	rm -f  $(DESTDIR)$(PREFIX)/bin/$(PROGRAM)
+	rm -f  $(DESTDIR)$(SHARE_DIR)/applications/$(PROGRAM).desktop
 	rm -rf $(DESTDIR)$(SHARE_DIR)/$(PROGRAM)
