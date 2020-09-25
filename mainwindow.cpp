@@ -172,7 +172,7 @@ void MainWindow::updateThemes()
     else color+="unclear_";
     color += theme+".ini";
     //アイコン色 (line 17)
-    QString icon="include-file  = ~/.config/polybar/colors/icons/icons_";
+    QString icon="include-file = ~/.config/polybar/colors/icons/icons_";
     if(ui->colorful->isChecked()) icon+="colorful_";
     if(ui->simple  ->isChecked()) icon+="simple_";
     icon += theme+".ini";
