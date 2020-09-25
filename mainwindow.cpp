@@ -287,7 +287,7 @@ void MainWindow::updateModules()
     if(alreadyAdd) left+="left-end";
     //center (line 40)
     QString center = "modules-center =";  //left-begin clock right-end
-    if(ui->mod_clock->isChecked()) center+="left-begin clock right-end";
+    if(ui->mod_clock->isChecked()) center+=" left-begin clock right-end";
     //right (line 41)
     alreadyAdd = false;
     QString right = "modules-right  = "; //right-begin network cpu memory battery right-end right-begin power
