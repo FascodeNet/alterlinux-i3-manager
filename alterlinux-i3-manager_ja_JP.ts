@@ -102,40 +102,41 @@
     </message>
     <message>
         <source>error</source>
-        <translation type="unfinished"></translation>
+        <translation>エラー</translation>
     </message>
     <message>
         <source>File cannnot open: </source>
-        <translation type="unfinished"></translation>
+        <translation>ファイルを開けませんでした: </translation>
     </message>
     <message>
         <source>Warning</source>
-        <translation type="unfinished"></translation>
+        <translation>警告</translation>
     </message>
     <message>
         <source>Changes will be discarded.
 Are you sure to exit?</source>
-        <translation type="unfinished"></translation>
+        <translation>変更は破棄されます。
+終了しますか？</translation>
     </message>
     <message>
         <source>Are you sure to set default settings?</source>
-        <translation type="unfinished"></translation>
+        <translation>初期設定に戻しますか？</translation>
     </message>
     <message>
         <source>none</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <source>sharprev</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <source>round</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <source>sharp</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
 </context>
 </TS>
