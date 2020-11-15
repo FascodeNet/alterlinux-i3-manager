@@ -1,5 +1,5 @@
 // alterlinux-i3-manager - A i3wm setting manager for Alter Linux
-// main.cpp
+// mainwindow.cpp
 //
 // Watasuke
 // Email  : <watasuke102@gmail.com>
@@ -8,13 +8,9 @@
 // (c) 2020 Fascode Network.
 // This software is released under the GPL-3.0 License.
 
-#include <QtWidgets>
 #include "mainwindow.h"
+#include <QtWidgets>
 
-int main(int argc, char *argv[])
+_MainWindow::_MainWindow(QWidget* parent)
 {
-  QApplication a(argc, argv);
-  _MainWindow w;
-  w.show();
-  return a.exec();
 }

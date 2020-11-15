@@ -1,13 +1,2 @@
 .vscode
-*ninja*
-*.swp
-*_autogen
-
-CMake*
-!CMakeLists.txt
-cmake_install.cmake
-*.user
-
-*.o
-moc_*
-alterlinux-i3-manager
+build
