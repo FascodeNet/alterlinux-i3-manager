@@ -14,10 +14,7 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 find_package(Qt5 COMPONENTS Widgets REQUIRED)
 
 add_executable(alterlinux-i3-manager
-  main.cpp
-  mainwindow.cpp
-  mainwindow.h
-  mainwindow.ui
+  src/main.cpp
 )
 
 target_link_libraries(alterlinux-i3-manager PRIVATE Qt5::Widgets)
