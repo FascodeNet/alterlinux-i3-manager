@@ -1,0 +1,12 @@
+[Desktop Entry]
+Name=alterlinux-i3-manager
+Comment=A i3wm setting manager for Alter Linux
+Categories=Settings;
+Icon=preferences-system
+Path=/usr/share/alterlinux-i3-manager
+Exec=alterlinux-i3-manager
+Type=Application
+Terminal=false
+
+GenericName=Alter Linux i3wm theme settings
+GenericName[ja]=Alter Linux i3wm Edition の設定
