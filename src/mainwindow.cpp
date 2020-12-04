@@ -10,6 +10,7 @@
 
 #include "mainwindow.h"
 #include <QtWidgets>
+#include "looks_page.h"
 
 _MainWindow::_MainWindow(QWidget* parent) {
   // Layouts
@@ -22,10 +23,10 @@ _MainWindow::_MainWindow(QWidget* parent) {
   QPushButton* button_restore = new QPushButton(tr("Restore to default settings"));
   QPushButton* button_apply = new QPushButton(tr("Apply"));
   // Add pages to TabWidget
-  QWidget *tab_looks   = new QWidget();
-  QWidget *tab_modules = new QWidget();
-  tab_widget->addTab(tab_looks,   tr("Looks"));
-  tab_widget->addTab(tab_modules, tr("Modules"));
+  tab_looks_   = new _LooksPage();
+  tab_modules_ = new QWidget();
+  tab_widget->addTab(tab_looks_,   tr("Looks"));
+  tab_widget->addTab(tab_modules_, tr("Modules"));
   // Buttons init
   QObject::connect(button_exit, &QPushButton::clicked, this, &_MainWindow::exit_);
   buttons->addWidget(button_exit);
@@ -61,4 +62,5 @@ void _MainWindow::restore_()
 
 void _MainWindow::apply_()
 {
+  qDebug() <<"[debug] shape is "<< tab_looks_->GetSelectedShape_();
 }

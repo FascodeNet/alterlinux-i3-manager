@@ -12,9 +12,12 @@
 #define ALTERLINUX_i3_MANAGER_MAINWINDOW_H_
 
 #include <QtWidgets>
+#include "looks_page.h"
 
 class _MainWindow : public QMainWindow {
  private:
+  _LooksPage* tab_looks_;
+  QWidget*    tab_modules_;
   void closeEvent(QCloseEvent*);
  private slots:
   void exit_();
