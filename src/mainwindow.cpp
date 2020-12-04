@@ -9,8 +9,13 @@
 // This software is released under the GPL-3.0 License.
 
 #include "mainwindow.h"
+#include <tuple>
+#include <vector>
 #include <QtWidgets>
+#include "setting_list.h"
 #include "looks_page.h"
+
+void ChangeLooksSetting(const _SettingList);
 
 _MainWindow::_MainWindow(QWidget* parent) {
   // Layouts
@@ -59,5 +64,55 @@ void _MainWindow::restore_() {
 }
 
 void _MainWindow::apply_() {
-  qDebug() << tab_looks_->SelectedShape_();
+  _SettingList list;
+  list.shape_        = tab_looks_->SelectedShape_();
+  list.theme_color_  = tab_looks_->ThemeColor_();
+  list.icon_color_   = tab_looks_->IconColor_();
+  list.bar_position_ = tab_looks_->BarPosition_();
+  list.translucent_  = tab_looks_->TranslucentBar_();
+  bool rounded = tab_looks_->RoundedBothEnds_();
+  if (rounded == true) {
+    // when bar is on the bottom
+    if(list.bar_position_ == "true")
+      list.rounded_ = "-top     = 15.0";
+    // when bar is on the top
+    if(list.bar_position_ == "false")
+      list.rounded_ = "-bottom  = 15.0";
+  } else
+      list.rounded_ = "         = 0";
+}
+
+void ChangeLooksSetting(const _SettingList setting) {
+  QString after_changes;
+  // This is pairs of line number where need to change and string which after change.
+  std::vector<std::tuple<int, QString>> changes;
+  changes.resize(6);
+  ///////////////////////////////////
+  // Bar color
+  after_changes = QString::asprintf(
+    "include-file = ~/.config/polybar/colors/colors_%s%s.ini",
+    setting.translucent_, setting.theme_color_
+  );
+  changes[0] = std::make_tuple(16, after_changes);
+  ///////////////////////////////////
+  // Icon color
+  after_changes = QString::asprintf(
+    "include-file = ~/.config/polybar/colors/icons/icons_%s%s.ini",
+    setting.icon_color_, setting.theme_color_
+  );
+  changes[0] = std::make_tuple(17, after_changes);
+  ///////////////////////////////////
+  // Block shape
+  after_changes = QString::asprintf(
+    "include-file = ~/.config/polybar/blocks/blocks_%s%s.ini", setting.shape_
+  );
+  changes[0] = std::make_tuple(17, after_changes);
+  ///////////////////////////////////
+  // Bar position
+  after_changes = QString::asprintf("bottom         = %s", setting.shape_);
+  changes[0] = std::make_tuple(17, after_changes);
+  ///////////////////////////////////
+  // Rounded both ends of bar
+  after_changes = QString::asprintf("radius%s", setting.rounded_);
+  changes[0] = std::make_tuple(17, after_changes);
 }

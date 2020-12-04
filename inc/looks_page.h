@@ -42,6 +42,11 @@ class _LooksPage : public QWidget {
 public:
   _LooksPage(QWidget* parent = nullptr);
   QString SelectedShape_();
+  QString ThemeColor_();
+  QString IconColor_();
+  QString BarPosition_();
+  QString TranslucentBar_();
+  bool    RoundedBothEnds_();
 };
 
 #endif

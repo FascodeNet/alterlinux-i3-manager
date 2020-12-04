@@ -106,7 +106,31 @@ _LooksPage::_LooksPage(QWidget* parent) {
 }
 
 QString _LooksPage::SelectedShape_() {
-  return "";
+  QString shape;
+  if(shape_none_     ->isChecked()) shape = "none";
+  if(shape_round_    ->isChecked()) shape = "round";
+  if(shape_sharp_    ->isChecked()) shape = "sharp";
+  if(shape_sharp_rev_->isChecked()) shape = "sharprev";
+  return shape;
+}
+QString _LooksPage::ThemeColor_() {
+  if(theme_dark_->isChecked()) return "dark";
+  return "light";
+}
+QString _LooksPage::IconColor_() {
+  if(icon_colorful_->isChecked()) return "colorful_";
+  return "simple_";
+}
+QString _LooksPage::BarPosition_() {
+  if(bar_bottom_->isChecked()) return "true";
+  return "false";
+}
+QString _LooksPage::TranslucentBar_() {
+  if(translucent_bar_->isChecked()) return "clear_";
+  return "unclear_";
+}
+bool _LooksPage::RoundedBothEnds_() {
+  return rounded_both_ends_->isChecked();
 }
 
 void _LooksPage::LoadSettings_() {
