@@ -63,6 +63,16 @@ _LooksPage::_LooksPage(QWidget* parent)
   icon_colorful_->setText(tr("Colorful"));
   bar_top_      ->setText(tr("Top"));
   bar_bottom_   ->setText(tr("Bottom"));
+  // Add to group
+  group_theme_color_ = new QButtonGroup;
+  group_theme_color_->addButton(theme_dark_);
+  group_theme_color_->addButton(theme_light_);
+  group_icon_color_ = new QButtonGroup;
+  group_icon_color_->addButton(icon_simple_);
+  group_icon_color_->addButton(icon_colorful_);
+  group_bar_position_ = new QButtonGroup;
+  group_bar_position_->addButton(bar_top_);
+  group_bar_position_->addButton(bar_bottom_);
   // Add to layout
   properties->addWidget(new QLabel(tr("Theme color")) , 0, 0);
   properties->addWidget(new QLabel(tr("Icon color"))  , 0, 1);

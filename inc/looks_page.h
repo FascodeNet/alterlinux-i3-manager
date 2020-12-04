@@ -16,17 +16,17 @@
 class _LooksPage : public QWidget {
  private:
   // radiobutton for shape select
-  QRadioButton* checkbox_none_;
-  QRadioButton* checkbox_round_;
-  QRadioButton* checkbox_sharp_;
-  QRadioButton* checkbox_sharp_rev_;
+  QButtonGroup* group_shape_;
   // select theme color
+  QButtonGroup* group_theme_color_;
   QRadioButton* theme_dark_;
   QRadioButton* theme_light_;
   // select icon color
+  QButtonGroup* group_icon_color_;
   QRadioButton* icon_colorful_;
   QRadioButton* icon_simple_;
   // select bar position
+  QButtonGroup* group_bar_position_;
   QRadioButton* bar_top_;
   QRadioButton* bar_bottom_;
   // other
