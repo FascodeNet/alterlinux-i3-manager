@@ -26,7 +26,7 @@ void _MainWindow::ChangeRofiSetting_(const _SettingList setting) {
   QString out;
   QString theme=QString::asprintf(
     "rofi.theme      : ~/.config/rofi/alter-%s.rasi",
-    setting.theme_color_
+    setting.theme_color_.toUtf8().constData()
   );
   int i=1;
   // Read from file
