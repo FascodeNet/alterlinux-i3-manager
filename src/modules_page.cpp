@@ -56,4 +56,46 @@ _ModulesPage::_ModulesPage(QWidget* parent) {
   layout->addWidget(new QLabel(tr("Check the modules you want to display")), 0, Qt::AlignTop);
   layout->addLayout(checkboxes);
   setLayout(layout);
+
+  LoadSettings_();
+}
+
+void _ModulesPage::LoadSettings_() {
+  //Open setting file
+  QFile file(QDir::homePath()+"/.config/alterlinux-i3-manager/module.conf");
+  if (!file.open(QIODevice::ReadOnly)) {
+    box_launcher->setChecked(true);
+    box_i3      ->setChecked(true);
+    box_clock   ->setChecked(true);
+    box_network ->setChecked(true);
+    box_cpu     ->setChecked(true);
+    box_memory  ->setChecked(true);
+    box_battery ->setChecked(true);
+    box_power   ->setChecked(true);
+    return;
+  }
+  QTextStream stream(&file);
+  int num=stream.readLine().toInt();
+  if (num >= 128) {box_power   ->setChecked(true); num -= 128;}
+  if (num >=  64) {box_battery ->setChecked(true); num -=  64;}
+  if (num >=  32) {box_memory  ->setChecked(true); num -=  32;}
+  if (num >=  16) {box_cpu     ->setChecked(true); num -=  16;}
+  if (num >=   8) {box_network ->setChecked(true); num -=   8;}
+  if (num >=   4) {box_clock   ->setChecked(true); num -=   4;}
+  if (num >=   2) {box_i3      ->setChecked(true); num -=   2;}
+  if (num >=   1) {box_launcher->setChecked(true); num -=   1;}
+  file.close();
+}
+
+int _ModulesPage::CheckBoxesStatus() {
+  int num = 0;
+  if (box_power   ->isChecked()) num += 128;
+  if (box_battery ->isChecked()) num +=  64;
+  if (box_memory  ->isChecked()) num +=  32;
+  if (box_cpu     ->isChecked()) num +=  16;
+  if (box_network ->isChecked()) num +=   8;
+  if (box_clock   ->isChecked()) num +=   4;
+  if (box_i3      ->isChecked()) num +=   2;
+  if (box_launcher->isChecked()) num +=   1;
+  return num;
 }
