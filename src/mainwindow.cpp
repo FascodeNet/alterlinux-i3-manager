@@ -10,6 +10,8 @@
 
 #include "mainwindow.h"
 #include <QtWidgets>
+#include "looks_page.h"
+#include "modules_page.h"
 
 _MainWindow::_MainWindow(QWidget* parent) {
   // Layouts
@@ -23,7 +25,7 @@ _MainWindow::_MainWindow(QWidget* parent) {
   QPushButton* button_apply   = new QPushButton(tr("Apply"));
   // Add pages to TabWidget
   tab_looks_   = new _LooksPage();
-  tab_modules_ = new QWidget();
+  tab_modules_ = new _ModulesPage();
   tab_widget->addTab(tab_looks_,   tr("Looks"));
   tab_widget->addTab(tab_modules_, tr("Modules"));
   // Buttons init
@@ -43,7 +45,7 @@ _MainWindow::_MainWindow(QWidget* parent) {
   // Add layout to MainWidget
   main_widget->setLayout(layout);
   setCentralWidget(main_widget);
-  setFixedSize(500, 450);
+  setFixedSize(500, 350);
 }
 
 void _MainWindow::closeEvent(QCloseEvent* event)
