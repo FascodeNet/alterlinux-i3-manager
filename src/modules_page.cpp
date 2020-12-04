@@ -62,7 +62,7 @@ _ModulesPage::_ModulesPage(QWidget* parent) {
 
 void _ModulesPage::LoadSettings_() {
   //Open setting file
-  QFile file(QDir::homePath()+"/.config/alterlinux-i3-manager/module.conf");
+  QFile file(QDir::homePath()+"/.config/alterlinux-i3-manager/modules.conf");
   if (!file.open(QIODevice::ReadOnly)) {
     box_launcher->setChecked(true);
     box_i3      ->setChecked(true);

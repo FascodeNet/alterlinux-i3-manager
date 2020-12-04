@@ -108,7 +108,7 @@ void _MainWindow::ChangePolybarSetting_(const _SettingList setting) {
     while (!stream.atEnd()) {
       edited = false;
       // 変更が要求されている行に達したら、変更内容を適用する
-      for (int j = 0; j < 5; j++)
+      for (int j = 0; j < changes.size(); j++)
         if (std::get<0>(changes[j]) == i) {
           edited = true;
           out += std::get<1>(changes[j]);
