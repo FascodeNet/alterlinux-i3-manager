@@ -33,9 +33,14 @@ class _MainWindow : public QMainWindow {
  public:
   _MainWindow(QWidget* parent = nullptr);
   void CreateManagerConfigDirectory();
+  // Change looks
   void ChangeRofiSetting_(const _SettingList);
   void ChangePolybarSetting_(const _SettingList);
-  void ChangeManagerSetting_(const _SettingList);
+  // Modules
+  void ChangeModulesSetting_();
+  // Change manager settings
+  void ChangeManagersPolybarSetting_(const _SettingList);
+  void ChangeManagersModulesSetting_(const _SettingList);
 };
 
 #endif

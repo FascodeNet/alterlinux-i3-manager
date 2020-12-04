@@ -90,5 +90,5 @@ void _MainWindow::apply_() {
       list.rounded_ = "         = 0";
   ChangeRofiSetting_(list);
   ChangePolybarSetting_(list);
-  ChangeManagerSetting_(list);
+  ChangeManagersPolybarSetting_(list);
 }

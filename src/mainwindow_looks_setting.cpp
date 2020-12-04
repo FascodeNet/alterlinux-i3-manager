@@ -135,7 +135,7 @@ void _MainWindow::ChangePolybarSetting_(const _SettingList setting) {
   system("i3-msg restart");
 }
 
-void _MainWindow::ChangeManagerSetting_(const _SettingList setting) {
+void _MainWindow::ChangeManagersPolybarSetting_(const _SettingList setting) {
   QString out="";
   // Block shape
   if      (setting.shape_ == "sharprev") out += "3\n";
@@ -157,9 +157,6 @@ void _MainWindow::ChangeManagerSetting_(const _SettingList setting) {
   // Rounded bar
   if (setting.rounded_ == "         = 0") out += "0\n";
   else                                    out += "1\n";
-  // Create directory
-  QDir config_file_dir(QDir::homePath() + "/.config");
-  if (!config_file_dir.exists("alterlinux-i3-manager")) config_file_dir.mkdir("alterlinux-i3-manager");
   // Write to file
   CreateManagerConfigDirectory();
   QFile file(QDir::homePath() + "/.config/alterlinux-i3-manager/polybar.conf");
