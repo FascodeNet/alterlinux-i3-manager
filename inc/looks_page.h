@@ -36,7 +36,10 @@ class _LooksPage : public QWidget {
   // other
   QCheckBox* translucent_bar_;
   QCheckBox* rounded_both_ends_;
- public:
+  // function
+  void LoadSettings_();
+
+public:
   _LooksPage(QWidget* parent = nullptr);
   QString SelectedShape_();
 };
