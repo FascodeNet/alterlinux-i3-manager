@@ -11,8 +11,7 @@
 #include "looks_page.h"
 #include <QtWidgets>
 
-_LooksPage::_LooksPage(QWidget* parent)
-{
+_LooksPage::_LooksPage(QWidget* parent) {
   // Layouts
   QVBoxLayout* layout       = new QVBoxLayout();
   QGridLayout* shape_select = new QGridLayout();
@@ -21,32 +20,32 @@ _LooksPage::_LooksPage(QWidget* parent)
 
   /* Block shape */
   // Create label and load picture
-  QLabel* shape_none      = new QLabel();
-  QLabel* shape_round     = new QLabel();
-  QLabel* shape_sharp     = new QLabel();
-  QLabel* shape_sharp_rev = new QLabel();
-  /*shape_none     ->setPixmap(QPixmap("/usr/share/alterlinux-i3-manager/data/pic/polybar-none.png"));
-  shape_round    ->setPixmap(QPixmap("/usr/share/alterlinux-i3-manager/data/pic/polybar-round.png"));
-  shape_sharp    ->setPixmap(QPixmap("/usr/share/alterlinux-i3-manager/data/pic/polybar-sharp.png"));
-  shape_sharp_rev->setPixmap(QPixmap("/usr/share/alterlinux-i3-manager/data/pic/polybar-sharprev.png"));*/
-  shape_none     ->setPixmap(QPixmap("data/pic/polybar-none.png"));
-  shape_round    ->setPixmap(QPixmap("data/pic/polybar-round.png"));
-  shape_sharp    ->setPixmap(QPixmap("data/pic/polybar-sharp.png"));
-  shape_sharp_rev->setPixmap(QPixmap("data/pic/polybar-sharprev.png"));
+  QLabel* thumbnail_none      = new QLabel();
+  QLabel* thumbnail_round     = new QLabel();
+  QLabel* thumbnail_sharp     = new QLabel();
+  QLabel* thumbnail_sharp_rev = new QLabel();
+  /*thumbnail_none   ->setPixmap(QPixmap("/usr/share/alterlinux-i3-manager/data/pic/polybar-none.png"));
+  thumbnail_round    ->setPixmap(QPixmap("/usr/share/alterlinux-i3-manager/data/pic/polybar-round.png"));
+  thumbnail_sharp    ->setPixmap(QPixmap("/usr/share/alterlinux-i3-manager/data/pic/polybar-sharp.png"));
+  thumbnail_sharp_rev->setPixmap(QPixmap("/usr/share/alterlinux-i3-manager/data/pic/polybar-sharprev.png"));*/
+  thumbnail_none     ->setPixmap(QPixmap("data/pic/polybar-none.png"));
+  thumbnail_round    ->setPixmap(QPixmap("data/pic/polybar-round.png"));
+  thumbnail_sharp    ->setPixmap(QPixmap("data/pic/polybar-sharp.png"));
+  thumbnail_sharp_rev->setPixmap(QPixmap("data/pic/polybar-sharprev.png"));
   // Checkbox
-  checkbox_none_      = new QRadioButton();
-  checkbox_round_     = new QRadioButton();
-  checkbox_sharp_     = new QRadioButton();
-  checkbox_sharp_rev_ = new QRadioButton();
+  shape_none_      = new QRadioButton();
+  shape_round_     = new QRadioButton();
+  shape_sharp_     = new QRadioButton();
+  shape_sharp_rev_ = new QRadioButton();
   // Add to layout
-  shape_select->addWidget(checkbox_none_,      0, 0, 1, 1, Qt::AlignRight);
-  shape_select->addWidget(checkbox_round_,     1, 0, 1, 1, Qt::AlignRight);
-  shape_select->addWidget(checkbox_sharp_,     2, 0, 1, 1, Qt::AlignRight);
-  shape_select->addWidget(checkbox_sharp_rev_, 3, 0, 1, 1, Qt::AlignRight);
-  shape_select->addWidget(shape_none,          0, 1);
-  shape_select->addWidget(shape_round,         1, 1);
-  shape_select->addWidget(shape_sharp,         2, 1);
-  shape_select->addWidget(shape_sharp_rev,     3, 1);
+  shape_select->addWidget(shape_none_,      0, 0, 1, 1, Qt::AlignRight);
+  shape_select->addWidget(shape_round_,     1, 0, 1, 1, Qt::AlignRight);
+  shape_select->addWidget(shape_sharp_,     2, 0, 1, 1, Qt::AlignRight);
+  shape_select->addWidget(shape_sharp_rev_, 3, 0, 1, 1, Qt::AlignRight);
+  shape_select->addWidget(thumbnail_none,      0, 1);
+  shape_select->addWidget(thumbnail_round,     1, 1);
+  shape_select->addWidget(thumbnail_sharp,     2, 1);
+  shape_select->addWidget(thumbnail_sharp_rev, 3, 1);
 
   /* Other settings */
   // Init widgets
@@ -104,7 +103,6 @@ _LooksPage::_LooksPage(QWidget* parent)
   setLayout(layout);
 }
 
-QString _LooksPage::SelectedShape_()
-{
+QString _LooksPage::SelectedShape_() {
   return "";
 }

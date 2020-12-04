@@ -17,6 +17,10 @@ class _LooksPage : public QWidget {
  private:
   // radiobutton for shape select
   QButtonGroup* group_shape_;
+  QRadioButton* shape_none_;
+  QRadioButton* shape_round_;
+  QRadioButton* shape_sharp_;
+  QRadioButton* shape_sharp_rev_;
   // select theme color
   QButtonGroup* group_theme_color_;
   QRadioButton* theme_dark_;

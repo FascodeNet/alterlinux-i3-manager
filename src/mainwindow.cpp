@@ -51,15 +51,13 @@ void _MainWindow::closeEvent(QCloseEvent* event)
   if(ans == QMessageBox::No) event->ignore();
 }
 
-void _MainWindow::exit_()
-{
+void _MainWindow::exit_() {
   close();
 }
 
-void _MainWindow::restore_()
-{
+void _MainWindow::restore_() {
 }
 
-void _MainWindow::apply_()
-{
+void _MainWindow::apply_() {
+  qDebug() << tab_looks_->SelectedShape_();
 }
