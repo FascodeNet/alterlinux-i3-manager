@@ -135,7 +135,7 @@ bool _LooksPage::RoundedBothEnds_() {
 
 void _LooksPage::LoadSettings_() {
   //Open setting file
-  QFile file(QDir::homePath()+"/.config/polybar/setting");
+  QFile file(QDir::homePath()+"/.config/alterlinux-i3-manager/polybar.conf");
   if (!file.open(QIODevice::ReadOnly)) {
     shape_none_ ->setChecked(true);
     theme_dark_ ->setChecked(true);
@@ -146,29 +146,29 @@ void _LooksPage::LoadSettings_() {
   QTextStream stream(&file);
   QString line;
   /* Load setting about looks */
-  // Color theme
-  line = stream.readLine();
-  if (line == "1") theme_light_->setChecked(true);
-  else             theme_dark_ ->setChecked(true);
-  // Translucent
-  line = stream.readLine();
-  if (line == "1") translucent_bar_->setChecked(true);
   // Block shape
   line = stream.readLine();
   if      (line == "3") shape_sharp_rev_->setChecked(true);
   else if (line == "2") shape_sharp_    ->setChecked(true);
   else if (line == "1") shape_round_    ->setChecked(true);
   else                  shape_none_     ->setChecked(true);
-  // Bar position
+  // Color theme
   line = stream.readLine();
-  if (line == "1") bar_bottom_->setChecked(true);
-  else             bar_top_   ->setChecked(true);
-  // Rounded bar
-  line = stream.readLine();
-  if (line == "1") rounded_both_ends_->setChecked(true);
+  if (line == "1") theme_light_->setChecked(true);
+  else             theme_dark_ ->setChecked(true);
   // Icon Color
   line = stream.readLine();
   if (line == "1") icon_colorful_->setChecked(true);
   else             icon_simple_  ->setChecked(true);
+  // Bar position
+  line = stream.readLine();
+  if (line == "1") bar_bottom_->setChecked(true);
+  else             bar_top_   ->setChecked(true);
+  // Translucent
+  line = stream.readLine();
+  if (line == "1") translucent_bar_->setChecked(true);
+  // Rounded bar
+  line = stream.readLine();
+  if (line == "1") rounded_both_ends_->setChecked(true);
   file.close();
 }

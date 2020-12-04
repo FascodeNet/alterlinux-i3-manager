@@ -31,6 +31,7 @@ class _MainWindow : public QMainWindow {
   _MainWindow(QWidget* parent = nullptr);
   void ChangeRofiSetting_(const _SettingList);
   void ChangePolybarSetting_(const _SettingList);
+  void ChangeManagerSetting_(const _SettingList);
 };
 
 #endif
