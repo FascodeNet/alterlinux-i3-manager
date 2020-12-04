@@ -62,5 +62,4 @@ void _MainWindow::restore_()
 
 void _MainWindow::apply_()
 {
-  qDebug() <<"[debug] shape is "<< tab_looks_->GetSelectedShape_();
 }

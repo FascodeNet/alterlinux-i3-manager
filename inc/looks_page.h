@@ -20,6 +20,18 @@ class _LooksPage : public QWidget {
   QRadioButton* checkbox_round_;
   QRadioButton* checkbox_sharp_;
   QRadioButton* checkbox_sharp_rev_;
+  // select theme color
+  QRadioButton* theme_dark_;
+  QRadioButton* theme_light_;
+  // select icon color
+  QRadioButton* icon_colorful_;
+  QRadioButton* icon_simple_;
+  // select bar position
+  QRadioButton* bar_top_;
+  QRadioButton* bar_bottom_;
+  // other
+  QCheckBox* translucent_bar_;
+  QCheckBox* rounded_both_ends_;
  public:
   _LooksPage(QWidget* parent = nullptr);
   QString SelectedShape_();

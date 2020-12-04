@@ -16,6 +16,7 @@ _LooksPage::_LooksPage(QWidget* parent)
   // Layouts
   QVBoxLayout* layout       = new QVBoxLayout();
   QGridLayout* shape_select = new QGridLayout();
+  QHBoxLayout* checkboxes   = new QHBoxLayout();
   QGridLayout* properties   = new QGridLayout();
 
   /* Block shape */
@@ -37,7 +38,7 @@ _LooksPage::_LooksPage(QWidget* parent)
   checkbox_round_     = new QRadioButton();
   checkbox_sharp_     = new QRadioButton();
   checkbox_sharp_rev_ = new QRadioButton();
-  // add layout
+  // Add to layout
   shape_select->addWidget(checkbox_none_,      0, 0, 1, 1, Qt::AlignRight);
   shape_select->addWidget(checkbox_round_,     1, 0, 1, 1, Qt::AlignRight);
   shape_select->addWidget(checkbox_sharp_,     2, 0, 1, 1, Qt::AlignRight);
@@ -48,11 +49,52 @@ _LooksPage::_LooksPage(QWidget* parent)
   shape_select->addWidget(shape_sharp_rev,     3, 1);
 
   /* Other settings */
+  // Init widgets
+  theme_dark_    = new QRadioButton();
+  theme_light_   = new QRadioButton();
+  icon_simple_   = new QRadioButton();
+  icon_colorful_ = new QRadioButton();
+  bar_top_       = new QRadioButton();
+  bar_bottom_    = new QRadioButton();
+  // Set text
+  theme_dark_   ->setText(tr("Dark"));
+  theme_light_  ->setText(tr("Light"));
+  icon_simple_  ->setText(tr("Simple"));
+  icon_colorful_->setText(tr("Colorful"));
+  bar_top_      ->setText(tr("Top"));
+  bar_bottom_   ->setText(tr("Bottom"));
+  // Add to layout
+  properties->addWidget(new QLabel(tr("Theme color")) , 0, 0);
+  properties->addWidget(new QLabel(tr("Icon color"))  , 0, 1);
+  properties->addWidget(new QLabel(tr("Bar position")), 0, 2);
+  properties->addWidget(theme_dark_ , 1, 0);
+  properties->addWidget(icon_simple_, 1, 1);
+  properties->addWidget(bar_top_    , 1, 2);
+  properties->addWidget(theme_light_  , 2, 0);
+  properties->addWidget(icon_colorful_, 2, 1);
+  properties->addWidget(bar_bottom_   , 2, 2);
 
+  /* Checkboxes */
+  // Init
+  translucent_bar_   = new QCheckBox();
+  rounded_both_ends_ = new QCheckBox();
+  // Set Text
+  translucent_bar_  ->setText(tr("Use translucent bar"));
+  rounded_both_ends_->setText(tr("Round both ends of bar"));
+  // Add to layout
+  checkboxes->addWidget(translucent_bar_);
+  checkboxes->addWidget(rounded_both_ends_);
+
+  shape_select->setAlignment(Qt::AlignTop | Qt::AlignHCenter);
+  checkboxes->setAlignment(Qt::AlignBottom);
+  properties->setAlignment(Qt::AlignBottom);
   layout->addLayout(shape_select);
+  layout->addLayout(checkboxes);
+  layout->addLayout(properties);
   setLayout(layout);
 }
 
 QString _LooksPage::SelectedShape_()
 {
+  return "";
 }
