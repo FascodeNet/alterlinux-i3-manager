@@ -45,7 +45,7 @@ _MainWindow::_MainWindow(QWidget* parent) {
   // Add layout to MainWidget
   main_widget->setLayout(layout);
   setCentralWidget(main_widget);
-  setFixedSize(500, 350);
+  setFixedSize(500, 400);
 }
 
 void _MainWindow::CreateManagerConfigDirectory()
