@@ -11,6 +11,8 @@
 #ifndef ALTERLINUX_i3_MANAGER_MAINWINDOW_H_
 #define ALTERLINUX_i3_MANAGER_MAINWINDOW_H_
 
+#include <tuple>
+#include <vector>
 #include <QtWidgets>
 #include "looks_page.h"
 #include "setting_list.h"
