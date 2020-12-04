@@ -18,7 +18,10 @@ include_directories("inc")
 add_executable(alterlinux-i3-manager
   src/main.cpp
   src/mainwindow.cpp
+  src/mainwindow_looks_setting.cpp
+  src/mainwindow_modules_setting.cpp
   src/looks_page.cpp
+  src/modules_page.cpp
 )
 
 target_link_libraries(alterlinux-i3-manager PRIVATE Qt5::Widgets)
