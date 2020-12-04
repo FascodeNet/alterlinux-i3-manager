@@ -17,7 +17,7 @@ int main(int argc, char *argv[]) {
   QString locale( QLocale::system().name() );
   if(locale == QString("ja_JP"))
   {
-    translator.load("ja");
+    translator.load("/usr/share/alterlinux-i3-manager/alterlinux-i3-manager_ja");
     a.installTranslator(&translator);
   }
   _MainWindow w;
