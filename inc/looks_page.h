@@ -39,7 +39,7 @@ class _LooksPage : public QWidget {
   // function
   void LoadSettings_();
 
-public:
+ public:
   _LooksPage(QWidget* parent = nullptr);
   QString SelectedShape_();
   QString ThemeColor_();

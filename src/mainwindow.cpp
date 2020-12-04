@@ -15,8 +15,6 @@
 #include "setting_list.h"
 #include "looks_page.h"
 
-void ChangeLooksSetting(const _SettingList);
-
 _MainWindow::_MainWindow(QWidget* parent) {
   // Layouts
   QVBoxLayout* layout    = new QVBoxLayout();
@@ -61,6 +59,8 @@ void _MainWindow::exit_() {
 }
 
 void _MainWindow::restore_() {
+  int ans = QMessageBox::question(this, tr("Warning"), tr("Changes will be discarded.\nAre you sure to exit?"));
+  if(ans == QMessageBox::No) return;
 }
 
 void _MainWindow::apply_() {
@@ -80,12 +80,48 @@ void _MainWindow::apply_() {
       list.rounded_ = "-bottom  = 15.0";
   } else
       list.rounded_ = "         = 0";
+  ChangeRofiSetting_(list);
+  ChangePolybarSetting_(list);
 }
 
-void ChangeLooksSetting(const _SettingList setting) {
+void _MainWindow::ChangeRofiSetting_(const _SettingList setting) {
+  QFile file(QDir::homePath()+"/.config/rofi/config");
+  if(!file.open(QIODevice::ReadOnly))
+  {
+    QMessageBox::warning( this, tr("error"),tr("Rofi setting file cannnot open: ")+file.errorString() );
+    return;
+  }
+  QTextStream stream(&file);
+  QString out;
+  QString theme=QString::asprintf(
+    "rofi.theme      : ~/.config/rofi/alter-%s.rasi",
+    setting.theme_color_
+  );
+  int i=1;
+  while(!stream.atEnd()) {
+    switch(i) {
+      case 16:
+        out+=theme;
+        stream.readLine(); break;
+      default:
+        out+=stream.readLine(); break;
+    }
+    out+='\n';
+    i++;
+  }
+  file.close();
+  if (!file.open(QIODevice::WriteOnly)) {
+      QMessageBox::warning( this, tr("error"),tr("Rofi setting file cannnot open: ")+file.errorString() );
+      return;
+  }
+  QTextStream outstream(&file);
+  outstream<<out;
+  file.close();
+}
+
+void _MainWindow::ChangePolybarSetting_(const _SettingList setting) {
   QString after_changes;
-  // This is pairs of line number where need to change and string which after change.
-  std::vector<std::tuple<int, QString>> changes;
+  ListOfChanges changes;
   changes.resize(6);
   ///////////////////////////////////
   // Bar color
@@ -115,4 +151,44 @@ void ChangeLooksSetting(const _SettingList setting) {
   // Rounded both ends of bar
   after_changes = QString::asprintf("radius%s", setting.rounded_);
   changes[0] = std::make_tuple(17, after_changes);
+
+  WritePolybarSettingToConfigFile_(changes);
+}
+
+void _MainWindow::WritePolybarSettingToConfigFile_(const ListOfChanges changes) {
+  QFile file(QDir::homePath()+"/.config/polybar/config.ini");
+  if(!file.open(QIODevice::ReadOnly))
+  {
+    QMessageBox::warning(this, tr("error"), tr("File cannnot open: ")+file.errorString());
+    return;
+  }
+  QTextStream stream(&file);
+  QString out;
+  int i=1;
+  bool edited = false;
+  while (!stream.atEnd()) {
+    // 変更が要求されている行に達したら、変更内容を適用する
+    for (int j = 0; j < 6; j++)
+      if (std::get<0>(changes[j]) == i) {
+        edited = true;
+        out += std::get<1>(changes[j]);
+        stream.readLine();
+        break;
+      }
+    // 変更が要求されている行でなければ、そのまま読み込み
+    if (!edited)
+      out += stream.readLine();
+    out += '\n';
+    i++;
+  }
+  file.close();
+  if(!file.open(QIODevice::WriteOnly))
+    {
+        QMessageBox::warning( this, tr("error"),tr("File cannnot open: ")+file.errorString() );
+        return;
+    }
+    QTextStream outstream(&file);
+    outstream<<out;
+    file.close();
+    system("i3-msg restart");
 }
