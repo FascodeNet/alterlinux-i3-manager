@@ -13,6 +13,7 @@
 
 #include <QtWidgets>
 #include "looks_page.h"
+#include "setting_list.h"
 
 // This is pairs of line number where need to change and string which after change.
 typedef std::vector<std::tuple<int, QString>> ListOfChanges;
@@ -30,7 +31,6 @@ class _MainWindow : public QMainWindow {
   _MainWindow(QWidget* parent = nullptr);
   void ChangeRofiSetting_(const _SettingList);
   void ChangePolybarSetting_(const _SettingList);
-  void WritePolybarSettingToConfigFile_(const ListOfChanges);
 };
 
 #endif

@@ -106,7 +106,7 @@ _LooksPage::_LooksPage(QWidget* parent) {
 }
 
 QString _LooksPage::SelectedShape_() {
-  QString shape;
+  QString shape="none";
   if(shape_none_     ->isChecked()) shape = "none";
   if(shape_round_    ->isChecked()) shape = "round";
   if(shape_sharp_    ->isChecked()) shape = "sharp";
