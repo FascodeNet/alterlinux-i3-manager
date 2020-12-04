@@ -14,6 +14,12 @@
 #include <QtWidgets>
 
 class _MainWindow : public QMainWindow {
+ private:
+  void closeEvent(QCloseEvent*);
+ private slots:
+  void exit_();
+  void restore_();
+  void apply_();
  public:
   _MainWindow(QWidget* parent = nullptr);
 };

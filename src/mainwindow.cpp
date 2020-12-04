@@ -19,18 +19,20 @@ _MainWindow::_MainWindow(QWidget* parent) {
   QWidget*     main_widget  = new QWidget();
   QTabWidget*  tab_widget   = new QTabWidget();
   QPushButton* button_exit  = new QPushButton(tr("Exit"));
-  QPushButton* button_reset = new QPushButton(tr("Restore to default settings"));
+  QPushButton* button_restore = new QPushButton(tr("Restore to default settings"));
   QPushButton* button_apply = new QPushButton(tr("Apply"));
   // Add pages to TabWidget
   QWidget *tab_looks   = new QWidget();
   QWidget *tab_modules = new QWidget();
   tab_widget->addTab(tab_looks,   tr("Looks"));
   tab_widget->addTab(tab_modules, tr("Modules"));
-  // Add widgets to layout
+  // Buttons init
+  QObject::connect(button_exit, &QPushButton::clicked, this, &_MainWindow::exit_);
   buttons->addWidget(button_exit);
-  buttons->addWidget(button_reset);
+  buttons->addWidget(button_restore);
   buttons->addStretch();
   buttons->addWidget(button_apply);
+  // Add widgets to layout
   QLabel* header = new QLabel(tr("Settings manager for Alter Linux i3wm edition "));
   header->setStyleSheet("font-size:20px;");
   layout->addWidget(header);
@@ -40,4 +42,23 @@ _MainWindow::_MainWindow(QWidget* parent) {
   main_widget->setLayout(layout);
   setCentralWidget(main_widget);
   setFixedSize(500, 450);
+}
+
+void _MainWindow::closeEvent(QCloseEvent* event)
+{
+  int ans = QMessageBox::question(this, tr("Warning"), tr("Changes will be discarded.\nAre you sure to exit?"));
+  if(ans == QMessageBox::No) event->ignore();
+}
+
+void _MainWindow::exit_()
+{
+  close();
+}
+
+void _MainWindow::restore_()
+{
+}
+
+void _MainWindow::apply_()
+{
 }
