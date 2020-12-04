@@ -11,8 +11,7 @@
 #include "mainwindow.h"
 #include <QtWidgets>
 
-_MainWindow::_MainWindow(QWidget* parent)
-{
+_MainWindow::_MainWindow(QWidget* parent) {
   // Layouts
   QVBoxLayout* layout    = new QVBoxLayout();
   QHBoxLayout* buttons   = new QHBoxLayout();

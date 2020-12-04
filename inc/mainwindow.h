@@ -13,8 +13,7 @@
 
 #include <QtWidgets>
 
-class _MainWindow : public QMainWindow
-{
+class _MainWindow : public QMainWindow {
  public:
   _MainWindow(QWidget* parent = nullptr);
 };
