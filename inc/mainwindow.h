@@ -36,7 +36,7 @@ class _MainWindow : public QMainWindow {
   // Change looks
   void ChangeRofiSetting_(const _SettingList);
   void ChangePolybarSetting_(const _SettingList);
-  // Modules
+  // Change Modules
   void ChangeModulesSetting_();
   // Change manager settings
   void ChangeManagersPolybarSetting_(const _SettingList);
