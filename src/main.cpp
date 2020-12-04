@@ -13,6 +13,13 @@
 
 int main(int argc, char *argv[]) {
   QApplication a(argc, argv);
+  QTranslator translator;
+  QString locale( QLocale::system().name() );
+  if(locale == QString("ja_JP"))
+  {
+    translator.load("ja");
+    a.installTranslator(&translator);
+  }
   _MainWindow w;
   w.show();
   return a.exec();
