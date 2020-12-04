@@ -69,6 +69,13 @@ void _MainWindow::exit_() {
 void _MainWindow::restore_() {
   int ans = QMessageBox::question(this, tr("Warning"), tr("Are you sure to set default settings?"));
   if(ans == QMessageBox::No) return;
+  system("rm -rf ~/.config/alterlinux-i3-manager");
+  system("cp -r /usr/share/alterlinux-i3-manager/data/alterlinux-i3-manager ~/.config");
+  system("rm -rf ~/.config/polybar");
+  system("cp -r /usr/share/alterlinux-i3-manager/data/polybar ~/.config");
+  system("rm -rf ~/.config/rofi");
+  system("cp -r /usr/share/alterlinux-i3-manager/data/rofi ~/.config");
+  system("i3-msg restart");
 }
 
 void _MainWindow::apply_() {
