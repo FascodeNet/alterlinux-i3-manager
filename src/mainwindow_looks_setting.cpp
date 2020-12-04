@@ -161,6 +161,7 @@ void _MainWindow::ChangeManagerSetting_(const _SettingList setting) {
   QDir config_file_dir(QDir::homePath() + "/.config");
   if (!config_file_dir.exists("alterlinux-i3-manager")) config_file_dir.mkdir("alterlinux-i3-manager");
   // Write to file
+  CreateManagerConfigDirectory();
   QFile file(QDir::homePath() + "/.config/alterlinux-i3-manager/polybar.conf");
   if (!file.open(QIODevice::WriteOnly)) {
     QMessageBox::warning(this, tr("error"),tr("Cannot open this setting manager config file: ")+file.errorString() );

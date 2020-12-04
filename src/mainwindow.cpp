@@ -48,6 +48,14 @@ _MainWindow::_MainWindow(QWidget* parent) {
   setFixedSize(500, 350);
 }
 
+void _MainWindow::CreateManagerConfigDirectory()
+{
+  // Create directory
+  QDir config_file_dir(QDir::homePath() + "/.config");
+  if (!config_file_dir.exists("alterlinux-i3-manager"))
+    config_file_dir.mkdir("alterlinux-i3-manager");
+}
+
 void _MainWindow::closeEvent(QCloseEvent* event)
 {
   int ans = QMessageBox::question(this, tr("Warning"), tr("Changes will be discarded.\nAre you sure to exit?"));
