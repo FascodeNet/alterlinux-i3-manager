@@ -24,14 +24,10 @@ _LooksPage::_LooksPage(QWidget* parent) {
   QLabel* thumbnail_round     = new QLabel();
   QLabel* thumbnail_sharp     = new QLabel();
   QLabel* thumbnail_sharp_rev = new QLabel();
-  /*thumbnail_none   ->setPixmap(QPixmap("/usr/share/alterlinux-i3-manager/data/pic/polybar-none.png"));
+  thumbnail_none     ->setPixmap(QPixmap("/usr/share/alterlinux-i3-manager/data/pic/polybar-none.png"));
   thumbnail_round    ->setPixmap(QPixmap("/usr/share/alterlinux-i3-manager/data/pic/polybar-round.png"));
   thumbnail_sharp    ->setPixmap(QPixmap("/usr/share/alterlinux-i3-manager/data/pic/polybar-sharp.png"));
-  thumbnail_sharp_rev->setPixmap(QPixmap("/usr/share/alterlinux-i3-manager/data/pic/polybar-sharprev.png"));*/
-  thumbnail_none     ->setPixmap(QPixmap("data/pic/polybar-none.png"));
-  thumbnail_round    ->setPixmap(QPixmap("data/pic/polybar-round.png"));
-  thumbnail_sharp    ->setPixmap(QPixmap("data/pic/polybar-sharp.png"));
-  thumbnail_sharp_rev->setPixmap(QPixmap("data/pic/polybar-sharprev.png"));
+  thumbnail_sharp_rev->setPixmap(QPixmap("/usr/share/alterlinux-i3-manager/data/pic/polybar-sharprev.png"));
   // Checkbox
   shape_none_      = new QRadioButton();
   shape_round_     = new QRadioButton();
