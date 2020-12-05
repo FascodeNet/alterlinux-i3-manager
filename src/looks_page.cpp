@@ -133,10 +133,7 @@ void _LooksPage::LoadSettings_() {
   //Open setting file
   QFile file(QDir::homePath()+"/.config/alterlinux-i3-manager/polybar.conf");
   if (!file.open(QIODevice::ReadOnly)) {
-    shape_none_ ->setChecked(true);
-    theme_dark_ ->setChecked(true);
-    icon_simple_->setChecked(true);
-    bar_top_    ->setChecked(true);
+    ResetAllState();
     return;
   }
   QTextStream stream(&file);
@@ -167,4 +164,13 @@ void _LooksPage::LoadSettings_() {
   line = stream.readLine();
   if (line == "1") rounded_both_ends_->setChecked(true);
   file.close();
+}
+
+void _LooksPage::ResetAllState() {
+  shape_none_       ->setChecked(true);
+  theme_dark_       ->setChecked(true);
+  icon_simple_      ->setChecked(true);
+  bar_top_          ->setChecked(true);
+  translucent_bar_  ->setChecked(false);
+  rounded_both_ends_->setChecked(false);
 }

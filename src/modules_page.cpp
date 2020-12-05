@@ -64,14 +64,7 @@ void _ModulesPage::LoadSettings_() {
   //Open setting file
   QFile file(QDir::homePath()+"/.config/alterlinux-i3-manager/modules.conf");
   if (!file.open(QIODevice::ReadOnly)) {
-    box_launcher->setChecked(true);
-    box_i3      ->setChecked(true);
-    box_clock   ->setChecked(true);
-    box_network ->setChecked(true);
-    box_cpu     ->setChecked(true);
-    box_memory  ->setChecked(true);
-    box_battery ->setChecked(true);
-    box_power   ->setChecked(true);
+    ResetAllState();
     return;
   }
   QTextStream stream(&file);
@@ -98,4 +91,15 @@ int _ModulesPage::CheckBoxesStatus() {
   if (box_i3      ->isChecked()) num +=   2;
   if (box_launcher->isChecked()) num +=   1;
   return num;
+}
+
+void _ModulesPage::ResetAllState() {
+  box_launcher->setChecked(true);
+  box_i3      ->setChecked(true);
+  box_clock   ->setChecked(true);
+  box_network ->setChecked(true);
+  box_cpu     ->setChecked(true);
+  box_memory  ->setChecked(true);
+  box_battery ->setChecked(true);
+  box_power   ->setChecked(true);
 }

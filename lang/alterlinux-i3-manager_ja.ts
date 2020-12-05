@@ -4,57 +4,57 @@
 <context>
     <name>_LooksPage</name>
     <message>
-        <location filename="../src/looks_page.cpp" line="59"/>
+        <location filename="../src/looks_page.cpp" line="55"/>
         <source>Dark</source>
         <translation>ダーク</translation>
     </message>
     <message>
-        <location filename="../src/looks_page.cpp" line="60"/>
+        <location filename="../src/looks_page.cpp" line="56"/>
         <source>Light</source>
         <translation>ライト</translation>
     </message>
     <message>
-        <location filename="../src/looks_page.cpp" line="61"/>
+        <location filename="../src/looks_page.cpp" line="57"/>
         <source>Simple</source>
         <translation>シンプル</translation>
     </message>
     <message>
-        <location filename="../src/looks_page.cpp" line="62"/>
+        <location filename="../src/looks_page.cpp" line="58"/>
         <source>Colorful</source>
         <translation>カラフル</translation>
     </message>
     <message>
-        <location filename="../src/looks_page.cpp" line="63"/>
+        <location filename="../src/looks_page.cpp" line="59"/>
         <source>Top</source>
         <translation>画面上部</translation>
     </message>
     <message>
-        <location filename="../src/looks_page.cpp" line="64"/>
+        <location filename="../src/looks_page.cpp" line="60"/>
         <source>Bottom</source>
         <translation>画面下部</translation>
     </message>
     <message>
-        <location filename="../src/looks_page.cpp" line="76"/>
+        <location filename="../src/looks_page.cpp" line="72"/>
         <source>Theme color</source>
         <translation>テーマ</translation>
     </message>
     <message>
-        <location filename="../src/looks_page.cpp" line="77"/>
+        <location filename="../src/looks_page.cpp" line="73"/>
         <source>Icon color</source>
         <translation>アイコンカラー</translation>
     </message>
     <message>
-        <location filename="../src/looks_page.cpp" line="78"/>
+        <location filename="../src/looks_page.cpp" line="74"/>
         <source>Bar position</source>
         <translation>バーの位置</translation>
     </message>
     <message>
-        <location filename="../src/looks_page.cpp" line="91"/>
+        <location filename="../src/looks_page.cpp" line="87"/>
         <source>Use translucent bar</source>
         <translation>バーを半透明にする</translation>
     </message>
     <message>
-        <location filename="../src/looks_page.cpp" line="92"/>
+        <location filename="../src/looks_page.cpp" line="88"/>
         <source>Round both ends of bar</source>
         <translation>バーの両端を丸める</translation>
     </message>

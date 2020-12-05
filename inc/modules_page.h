@@ -29,7 +29,8 @@ class _ModulesPage : public QWidget {
 
  public:
   _ModulesPage(QWidget* parent = nullptr);
-  int CheckBoxesStatus();
+  int  CheckBoxesStatus();
+  void ResetAllState();
 };
 
 #endif

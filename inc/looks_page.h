@@ -41,6 +41,7 @@ class _LooksPage : public QWidget {
 
  public:
   _LooksPage(QWidget* parent = nullptr);
+  void    ResetAllState();
   QString SelectedShape_();
   QString ThemeColor_();
   QString IconColor_();
