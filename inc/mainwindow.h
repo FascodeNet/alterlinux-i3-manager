@@ -18,9 +18,6 @@
 #include "modules_page.h"
 #include "setting_list.h"
 
-// This is pairs of line number where need to change and string which after change.
-typedef std::vector<std::tuple<int, QString>> ListOfChanges;
-
 class _MainWindow : public QMainWindow {
  private:
   _LooksPage*   tab_looks_;

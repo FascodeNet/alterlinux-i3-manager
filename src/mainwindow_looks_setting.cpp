@@ -14,6 +14,7 @@
 #include <QtWidgets>
 #include "setting_list.h"
 #include "looks_page.h"
+#include "edit_file_specific_line.h"
 
 void _MainWindow::ChangeRofiSetting_(const _SettingList setting) {
   QFile file(QDir::homePath()+"/.config/rofi/config");
@@ -51,87 +52,43 @@ void _MainWindow::ChangeRofiSetting_(const _SettingList setting) {
 }
 
 void _MainWindow::ChangePolybarSetting_(const _SettingList setting) {
+  const QString file_path = QDir::homePath()+"/.config/polybar/config.ini";
   QString after_changes;
-  ListOfChanges changes;
-  changes.resize(5);
-  {
-    ///////////////////////////////////
-    // Bar color
-    after_changes = QString::asprintf(
-      "include-file = ~/.config/polybar/colors/colors_%s%s.ini",
-      setting.translucent_.toUtf8().constData(), setting.theme_color_.toUtf8().constData()
-    );
-    changes[0] = std::make_tuple(16, after_changes);
-    ///////////////////////////////////
-    // Icon color
-    after_changes = QString::asprintf(
-      "include-file = ~/.config/polybar/colors/icons/icons_%s%s.ini",
-      setting.icon_color_.toUtf8().constData(), setting.theme_color_.toUtf8().constData()
-    );
-    changes[1] = std::make_tuple(17, after_changes);
-    ///////////////////////////////////
-    // Block shape
-    after_changes = QString::asprintf(
-      "include-file = ~/.config/polybar/blocks/blocks_%s.ini",
-      setting.shape_.toUtf8().constData()
-    );
-    changes[2] = std::make_tuple(18, after_changes);
-    ///////////////////////////////////
-    // Bar position
-    after_changes = QString::asprintf(
-      "bottom         = %s",
-      setting.bar_position_.toUtf8().constData()
-    );
-    changes[3] = std::make_tuple(32, after_changes);
-    ///////////////////////////////////
-    // Rounded both ends of bar
-    after_changes = QString::asprintf(
-      "radius%s",
-      setting.rounded_.toUtf8().constData()
-    );
-    changes[4] = std::make_tuple(34, after_changes);
-  }
-  /* WritePolybarSettingToConfigFile */
-  // 本来関数分けするつもりでしたが、ListOfChangesの値をうまく渡せず統合しました
-  {
-    QFile file(QDir::homePath()+"/.config/polybar/config.ini");
-    if(!file.open(QIODevice::ReadOnly))
-    {
-      QMessageBox::warning(this, tr("error"), tr("Cannot open the Polybar config file: ")+file.errorString());
-      return;
-    }
-    QTextStream stream(&file);
-    QString out;
-    int i=1;
-    bool edited = false;
-    // Read from file
-    while (!stream.atEnd()) {
-      edited = false;
-      // 変更が要求されている行に達したら、変更内容を適用する
-      for (int j = 0; j < changes.size(); j++)
-        if (std::get<0>(changes[j]) == i) {
-          edited = true;
-          out += std::get<1>(changes[j]);
-          stream.readLine();
-          break;
-        }
-      // 変更が要求されている行でなければ、そのまま読み込み
-      if (!edited)
-        out += stream.readLine();
-      out += '\n';
-      i++;
-    }
-    file.close();
-    // Write to file
-    if (!file.open(QIODevice::WriteOnly))
-    {
-      QMessageBox::warning(this, tr("error"), tr("Cannot open the Polybar config file: ") + file.errorString());
-      return;
-    }
-    QTextStream outstream(&file);
-    outstream<<out;
-    file.close();
-  }
+  ///////////////////////////////////
+  // Bar color
+  after_changes = QString::asprintf(
+    "include-file = ~/.config/polybar/colors/colors_%s%s.ini",
+    setting.translucent_.toUtf8().constData(), setting.theme_color_.toUtf8().constData()
+  );
+  EditFileSpecificLine(16, after_changes, file_path);
+  ///////////////////////////////////
+  // Icon color
+  after_changes = QString::asprintf(
+    "include-file = ~/.config/polybar/colors/icons/icons_%s%s.ini",
+    setting.icon_color_.toUtf8().constData(), setting.theme_color_.toUtf8().constData()
+  );
+  EditFileSpecificLine(17, after_changes, file_path);
+  ///////////////////////////////////
+  // Block shape
+  after_changes = QString::asprintf(
+    "include-file = ~/.config/polybar/blocks/blocks_%s.ini",
+    setting.shape_.toUtf8().constData()
+  );
+  EditFileSpecificLine(18, after_changes, file_path);
+  ///////////////////////////////////
+  // Bar position
+  after_changes = QString::asprintf(
+    "bottom         = %s",
+    setting.bar_position_.toUtf8().constData()
+  );
+  EditFileSpecificLine(32, after_changes, file_path);
+  ///////////////////////////////////
+  // Rounded both ends of bar
+  after_changes = QString::asprintf(
+    "radius%s",
+    setting.rounded_.toUtf8().constData()
+  );
+  EditFileSpecificLine(34, after_changes, file_path);
   system("i3-msg restart");
 }
 
