@@ -17,38 +17,13 @@
 #include "edit_file_specific_line.h"
 
 void _MainWindow::ChangeRofiSetting_(const _SettingList setting) {
-  QFile file(QDir::homePath()+"/.config/rofi/config");
-  if(!file.open(QIODevice::ReadOnly))
-  {
-    QMessageBox::warning( this, tr("error"),tr("Cannot open the Rofi config file: ")+file.errorString() );
-    return;
-  }
-  QTextStream stream(&file);
-  QString out;
+  QString file_path = QDir::homePath()+"/.config/rofi/config";
   QString theme=QString::asprintf(
     "rofi.theme      : ~/.config/rofi/alter-%s.rasi",
     setting.theme_color_.toUtf8().constData()
   );
-  int i=1;
-  // Read from file
-  while(!stream.atEnd()) {
-    if (i == 16) {
-      out += theme+'\n';
-      stream.readLine();
-      i++;
-    }
-    out += stream.readLine()+'\n';
-    i++;
-  }
-  file.close();
-  // Write to file
-  if (!file.open(QIODevice::WriteOnly)) {
-    QMessageBox::warning( this, tr("error"),tr("Cannot open the Rofi config file: ")+file.errorString() );
-    return;
-  }
-  QTextStream outstream(&file);
-  outstream<<out;
-  file.close();
+  if(!EditFileSpecificLine(16, theme, file_path))
+    QMessageBox::warning( this, tr("error"),tr("Cannot open the Rofi config file"));
 }
 
 void _MainWindow::ChangePolybarSetting_(const _SettingList setting) {
