@@ -54,41 +54,44 @@ void _MainWindow::ChangeRofiSetting_(const _SettingList setting) {
 void _MainWindow::ChangePolybarSetting_(const _SettingList setting) {
   const QString file_path = QDir::homePath()+"/.config/polybar/config.ini";
   QString after_changes;
+  int status = 0;
   ///////////////////////////////////
   // Bar color
   after_changes = QString::asprintf(
     "include-file = ~/.config/polybar/colors/colors_%s%s.ini",
     setting.translucent_.toUtf8().constData(), setting.theme_color_.toUtf8().constData()
   );
-  EditFileSpecificLine(16, after_changes, file_path);
+  status += EditFileSpecificLine(16, after_changes, file_path);
   ///////////////////////////////////
   // Icon color
   after_changes = QString::asprintf(
     "include-file = ~/.config/polybar/colors/icons/icons_%s%s.ini",
     setting.icon_color_.toUtf8().constData(), setting.theme_color_.toUtf8().constData()
   );
-  EditFileSpecificLine(17, after_changes, file_path);
+  status += EditFileSpecificLine(17, after_changes, file_path);
   ///////////////////////////////////
   // Block shape
   after_changes = QString::asprintf(
     "include-file = ~/.config/polybar/blocks/blocks_%s.ini",
     setting.shape_.toUtf8().constData()
   );
-  EditFileSpecificLine(18, after_changes, file_path);
+  status += EditFileSpecificLine(18, after_changes, file_path);
   ///////////////////////////////////
   // Bar position
   after_changes = QString::asprintf(
     "bottom         = %s",
     setting.bar_position_.toUtf8().constData()
   );
-  EditFileSpecificLine(32, after_changes, file_path);
+  status += EditFileSpecificLine(32, after_changes, file_path);
   ///////////////////////////////////
   // Rounded both ends of bar
   after_changes = QString::asprintf(
     "radius%s",
     setting.rounded_.toUtf8().constData()
   );
-  EditFileSpecificLine(34, after_changes, file_path);
+  status += EditFileSpecificLine(34, after_changes, file_path);
+  if (status != 5)
+    QMessageBox::warning(this, tr("error"), tr("Cannot open the Polybar config file"));
   system("i3-msg restart");
 }
 

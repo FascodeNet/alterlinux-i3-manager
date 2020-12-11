@@ -62,9 +62,8 @@ void _MainWindow::ChangeModulesSetting_() {
   if(added) right+=" right-end";
   if(power) right+=" right-begin power";
 
-  EditFileSpecificLine(39, left,   file_path);
-  EditFileSpecificLine(40, center, file_path);
-  EditFileSpecificLine(41, right,  file_path);
+  if (!EditFileSpecificLine(39, left,   file_path) || !EditFileSpecificLine(40, center, file_path) || !EditFileSpecificLine(41, right,  file_path))
+    QMessageBox::warning(this, tr("error"), tr("Cannot open the Polybar config file"));
 }
 
 void _MainWindow::ChangeManagersModulesSetting_(const _SettingList setting) {
