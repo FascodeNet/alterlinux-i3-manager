@@ -62,34 +62,28 @@
 <context>
     <name>_MainWindow</name>
     <message>
-        <location filename="../src/mainwindow_looks_setting.cpp" line="22"/>
-        <location filename="../src/mainwindow_looks_setting.cpp" line="45"/>
-        <location filename="../src/mainwindow_looks_setting.cpp" line="100"/>
-        <location filename="../src/mainwindow_looks_setting.cpp" line="128"/>
-        <location filename="../src/mainwindow_looks_setting.cpp" line="164"/>
-        <location filename="../src/mainwindow_modules_setting.cpp" line="77"/>
-        <location filename="../src/mainwindow_modules_setting.cpp" line="105"/>
-        <location filename="../src/mainwindow_modules_setting.cpp" line="119"/>
+        <location filename="../src/mainwindow_looks_setting.cpp" line="26"/>
+        <location filename="../src/mainwindow_looks_setting.cpp" line="69"/>
+        <location filename="../src/mainwindow_looks_setting.cpp" line="99"/>
+        <location filename="../src/mainwindow_modules_setting.cpp" line="66"/>
+        <location filename="../src/mainwindow_modules_setting.cpp" line="74"/>
         <source>error</source>
         <translation>エラー</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow_looks_setting.cpp" line="22"/>
-        <location filename="../src/mainwindow_looks_setting.cpp" line="45"/>
-        <source>Cannot open the Rofi config file: </source>
-        <translation>Rofiの設定ファイルを開くことが出来ません: </translation>
+        <location filename="../src/mainwindow_looks_setting.cpp" line="26"/>
+        <source>Cannot open the Rofi config file</source>
+        <translation>Rofiの設定ファイルを開くことが出来ません</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow_looks_setting.cpp" line="100"/>
-        <location filename="../src/mainwindow_looks_setting.cpp" line="128"/>
-        <location filename="../src/mainwindow_modules_setting.cpp" line="77"/>
-        <location filename="../src/mainwindow_modules_setting.cpp" line="105"/>
-        <source>Cannot open the Polybar config file: </source>
-        <translation>Polybarの設定ファイルを開くことが出来ません: </translation>
+        <location filename="../src/mainwindow_looks_setting.cpp" line="69"/>
+        <location filename="../src/mainwindow_modules_setting.cpp" line="66"/>
+        <source>Cannot open the Polybar config file</source>
+        <translation>Polybarの設定ファイルを開くことが出来ません</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow_looks_setting.cpp" line="164"/>
-        <location filename="../src/mainwindow_modules_setting.cpp" line="119"/>
+        <location filename="../src/mainwindow_looks_setting.cpp" line="99"/>
+        <location filename="../src/mainwindow_modules_setting.cpp" line="74"/>
         <source>Cannot open this setting manager config file: </source>
         <translation>マネージャの設定ファイルを開くことが出来ません: </translation>
     </message>
