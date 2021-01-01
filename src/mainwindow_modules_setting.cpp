@@ -19,23 +19,14 @@ void _MainWindow::ChangeModulesSetting_() {
   bool network=false, cpu=false, memory=false, battery=false, power=false;
   {
     int num = tab_modules_->CheckBoxesStatus();
-    qDebug() << "num=" << num;
     if (num >= 128) {power    = true; num -= 128;}
-    qDebug() << "pow=" << power;
     if (num >=  64) {battery  = true; num -=  64;}
-    qDebug() << "bat=" << battery;
     if (num >=  32) {memory   = true; num -=  32;}
-    qDebug() << "mem=" << memory;
     if (num >=  16) {cpu      = true; num -=  16;}
-    qDebug() << "cpu=" << cpu;
     if (num >=   8) {network  = true; num -=   8;}
-    qDebug() << "net=" << network;
     if (num >=   4) {clock    = true; num -=   4;}
-    qDebug() << "clo=" << clock;
     if (num >=   2) {i3       = true; num -=   2;}
-    qDebug() << "i3 =" << i3;
     if (num >=   1) {launcher = true; num -=   1;}
-    qDebug() << "lau=" << launcher;
   }
   bool added=false;
   // Left
