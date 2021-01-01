@@ -44,7 +44,7 @@ void _MainWindow::ChangeModulesSetting_() {
   if (i3)       { left += "i3 ";       added = true; }
   if (added) left += "left-end";
   // Center
-  QString center = "modules-center = ";
+  QString center = "modules-center =";
   if (clock) center += " left-begin clock right-end";
   // Right
   added = false;
