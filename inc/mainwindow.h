@@ -19,6 +19,7 @@
 #include "setting_list.h"
 
 class _MainWindow : public QMainWindow {
+  Q_OBJECT
  private:
   _LooksPage*   tab_looks_;
   _ModulesPage* tab_modules_;

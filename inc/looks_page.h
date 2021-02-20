@@ -14,6 +14,7 @@
 #include <QtWidgets>
 
 class _LooksPage : public QWidget {
+  Q_OBJECT
  private:
   // radiobutton for shape select
   QButtonGroup* group_shape_;

@@ -14,6 +14,7 @@
 #include <QtWidgets>
 
 class _ModulesPage : public QWidget {
+  Q_OBJECT
  private:
   // Checkboxes
   QCheckBox* box_launcher;
