@@ -7,7 +7,11 @@
 //
 // (c) 2020 Fascode Network.
 // This software is released under the GPL-3.0 License.
-
+/*!
+ * @file mainwindow.h
+ * @brief MainWindow Header
+ * @author Watasuke
+*/
 #ifndef ALTERLINUX_i3_MANAGER_MAINWINDOW_H_
 #define ALTERLINUX_i3_MANAGER_MAINWINDOW_H_
 
@@ -17,7 +21,9 @@
 #include "looks_page.h"
 #include "modules_page.h"
 #include "setting_list.h"
-
+/*!
+ * MainWindow Class
+*/
 class _MainWindow : public QMainWindow {
   Q_OBJECT
  private:
@@ -30,9 +36,13 @@ class _MainWindow : public QMainWindow {
   void apply_();
  public:
   _MainWindow(QWidget* parent = nullptr);
+  /*!
+    * @fn
+    * Config Directory Create
+  */
   void CreateManagerConfigDirectory();
-  // Change looks
   void ChangeRofiSetting_(const _SettingList);
+
   void ChangePolybarSetting_(const _SettingList);
   // Change Modules
   void ChangeModulesSetting_();
