@@ -13,7 +13,7 @@ SHARE_DIR ?= $(PREFIX)/share
 PROGRAM = alterlinux-i3-manager
 
 all: 
-	cmake -GNinja -DCMAKE_C_COMPILER=clang -DCMAKE_CXX_COMPILER=clang++ .
+	cmake -GNinja .
 	ninja
 
 clean: 

@@ -1,6 +1,7 @@
 cmake_minimum_required(VERSION 3.5)
 
 set(PROJECT_NAME alterlinux-i3-manager)
+add_compile_options (-fdiagnostics-color=always)
 add_subdirectory(docs)
 project(${PROJECT_NAME} LANGUAGES CXX)
 
