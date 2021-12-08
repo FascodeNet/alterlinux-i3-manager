@@ -19,10 +19,10 @@
 void _MainWindow::ChangeRofiSetting_(const _SettingList setting) {
   QString file_path = QDir::homePath()+"/.config/rofi/config";
   QString theme=QString::asprintf(
-    "rofi.theme      : ~/.config/rofi/alter-%s.rasi",
+    "@theme \"~/.config/rofi/alter-%s.rasi\"",
     setting.theme_color_.toUtf8().constData()
   );
-  if(!EditFileSpecificLine(16, theme, file_path))
+  if(!EditFileSpecificLine(20, theme, file_path))
     QMessageBox::warning( this, tr("error"),tr("Cannot open the Rofi config file"));
 }
 
