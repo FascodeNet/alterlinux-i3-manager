@@ -1,5 +1,14 @@
 cmake_minimum_required(VERSION 3.5)
 
+if (${CMAKE_SOURCE_DIR} STREQUAL ${CMAKE_BINARY_DIR})
+  message(FATAL_ERROR [[
+FATAL: Not allowed in-tree build. try following commands:
+1. `rm -rf CMakeFiles CMakeCache.txt`
+2. `mkdir build && cd build`
+and try `cmake` again
+]])
+endif()
+
 set(PROJECT_NAME alterlinux-i3-manager)
 add_compile_options (-fdiagnostics-color=always)
 add_subdirectory(docs)
